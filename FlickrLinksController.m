@@ -30,29 +30,28 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	NSData* fetchedData = nil;
 	NSURLResponse* response = nil;
 	NSError* error = nil;
+	NSXMLDocument* xmlDocument = nil;
 	
 	fetchedData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:photoInformationURL] returningResponse:&response error:&error];
+	xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
 
-	NSXMLDocument* photoInformationDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
-
-	[[photo information] setValue:[[[photoInformationDocument nodesForXPath:@"rsp/photo/title" error:&error] objectAtIndex:0] stringValue] forKey:@"title"];
-	[[photo information] setValue:[[[photoInformationDocument nodesForXPath:@"rsp/photo/comments" error:&error] objectAtIndex:0] stringValue] forKey:@"commentCount"];
+	[[photo information] setValue:[[[xmlDocument nodesForXPath:@"rsp/photo/title" error:&error] objectAtIndex:0] stringValue] forKey:@"title"];
+	[[photo information] setValue:[[[xmlDocument nodesForXPath:@"rsp/photo/comments" error:&error] objectAtIndex:0] stringValue] forKey:@"commentCount"];
 
 	NSMutableArray* tagArray = [NSMutableArray array];
-	
-	for(NSXMLElement* element in 	[photoInformationDocument nodesForXPath:@"rsp/photo/tags/tag" error:&error])
+	for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/photo/tags/tag" error:&error])
 		{
 		[tagArray addObject:[element stringValue]];
 		}
-	
 	[[photo information] setObject:(NSArray*)tagArray forKey:@"tags"];
 
-	fetchedData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:photoAllContextsURL] returningResponse:&response error:&error];
 
-	NSXMLDocument* photoContextsDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
+
+	fetchedData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:photoAllContextsURL] returningResponse:&response error:&error];
+	xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
 	
 	NSMutableArray* poolArray = [NSMutableArray array];
-	for(NSXMLElement* element in 	[photoContextsDocument nodesForXPath:@"rsp/pool" error:&error])
+	for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/pool" error:&error])
 		{
 		[poolArray addObject:[[element attributeForName:@"title"] stringValue]];
 		}	
@@ -60,21 +59,19 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 
 
 	NSMutableArray* setArray = [NSMutableArray array];
-	
-	for(NSXMLElement* element in 	[photoContextsDocument nodesForXPath:@"rsp/set" error:&error])
+	for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/set" error:&error])
 		{
 		[setArray addObject:[[element attributeForName:@"title"] stringValue]];
 		}	
-	
 	[[photo information] setObject:setArray forKey:@"sets"];
 	
 	if([[[photo information] valueForKey:@"commentCount"] intValue])
 		{
 		fetchedData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:photoCommentsURL] returningResponse:&response error:&error];
-		NSXMLDocument* photoCommentsDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
+		xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
 		NSMutableArray* commentsArray = [NSMutableArray array];
 		
-		[[photoCommentsDocument nodesForXPath:@"rsp/comments/comment" error:&error] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		[[xmlDocument nodesForXPath:@"rsp/comments/comment" error:&error] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 			[commentsArray addObject:[obj stringValue]];
 		}];
 		
