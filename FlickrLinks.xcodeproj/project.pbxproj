@@ -54,7 +54,7 @@
 		BB031FBA130BD77700350873 = {
 			isa = PBXGroup;
 			children = (
-				BB031FCF130BD77800350873 /* FlickrLinks */,
+				BB031FCF130BD77800350873 /* Source */,
 				BB031FC8130BD77800350873 /* Frameworks */,
 				BB031FC6130BD77800350873 /* Products */,
 			);
@@ -87,7 +87,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		BB031FCF130BD77800350873 /* FlickrLinks */ = {
+		BB031FCF130BD77800350873 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				BB031FE6130BDB2B00350873 /* FlickrLinksController.h */,
@@ -100,7 +100,7 @@
 				BB031FD0130BD77800350873 /* Supporting Files */,
 				BB032000130C40F200350873 /* apiKey */,
 			);
-			path = FlickrLinks;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		BB031FD0130BD77800350873 /* Supporting Files */ = {
@@ -296,6 +296,7 @@
 				BB031FE5130BD77800350873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
