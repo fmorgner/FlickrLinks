@@ -255,8 +255,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FlickrLinks/FlickrLinks-Prefix.pch";
-				INFOPLIST_FILE = "FlickrLinks/FlickrLinks-Info.plist";
+				GCC_PREFIX_HEADER = "Source/FlickrLinks-Prefix.pch";
+				INFOPLIST_FILE = "Source/FlickrLinks-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -270,8 +270,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FlickrLinks/FlickrLinks-Prefix.pch";
-				INFOPLIST_FILE = "FlickrLinks/FlickrLinks-Info.plist";
+				GCC_PREFIX_HEADER = "Source/FlickrLinks-Prefix.pch";
+				INFOPLIST_FILE = "Source/FlickrLinks-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

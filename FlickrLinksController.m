@@ -9,10 +9,25 @@
 #import "FlickrLinksController.h"
 #import "FlickrPhoto.h"
 
-static NSString* apiKey = @"5dd47fb83f033e4f57f5745082e83d27";
+static NSString* apiKey = @""; // gets read from apiKey
 static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 
 @implementation FlickrLinksController
+
+- (id)init
+	{
+	if((self = [super init]))
+		{
+		NSError* error;
+		NSString* path = [[NSBundle mainBundle] pathForResource:@"apiKey" ofType:nil];
+		apiKey = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+		if ([apiKey isEqualToString:@""])
+			{
+			exit(0);
+			}
+		}
+	return self;
+	}
 
 - (IBAction) fetch:(id)sender
 	{
