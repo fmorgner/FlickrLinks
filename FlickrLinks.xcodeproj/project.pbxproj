@@ -32,8 +32,8 @@
 		BB031FDB130BD77800350873 /* FlickrLinksAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrLinksAppDelegate.h; sourceTree = "<group>"; };
 		BB031FDC130BD77800350873 /* FlickrLinksAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlickrLinksAppDelegate.m; sourceTree = "<group>"; };
 		BB031FDF130BD77800350873 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		BB031FE6130BDB2B00350873 /* FlickrLinksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrLinksController.h; sourceTree = SOURCE_ROOT; };
-		BB031FE7130BDB2B00350873 /* FlickrLinksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrLinksController.m; sourceTree = SOURCE_ROOT; };
+		BB031FE6130BDB2B00350873 /* FlickrLinksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlickrLinksController.h; path = Source/FlickrLinksController.h; sourceTree = SOURCE_ROOT; };
+		BB031FE7130BDB2B00350873 /* FlickrLinksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlickrLinksController.m; path = Source/FlickrLinksController.m; sourceTree = SOURCE_ROOT; };
 		BB031FEF130BDB8B00350873 /* FlickrPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhoto.h; sourceTree = "<group>"; };
 		BB031FF0130BDB8B00350873 /* FlickrPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhoto.m; sourceTree = "<group>"; };
 		BB032000130C40F200350873 /* apiKey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = apiKey; sourceTree = "<group>"; };
