@@ -10,4 +10,5 @@ build/
 xcuserdata
 .DS_Store
 Doxyfile
-apiKey
+Source/apiKey.h
+

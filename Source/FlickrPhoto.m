@@ -11,15 +11,27 @@
 
 @implementation FlickrPhoto
 
-@synthesize image, information;
+@synthesize image, pools, tags, sets, comments, commentCount, title, favorites, galleries;
 
 - (id)init
 	{
 	if((self = [super init]))
 		{
-		information = [NSMutableDictionary new];
 		}
 	return self;
+	}
+
+- (void)dealloc
+	{
+	[tags release];
+	[image release];
+	[pools release];
+	[sets release];
+	[comments release];
+	[title release];
+	[favorites release];
+	[galleries release];
+	[super dealloc];
 	}
 
 @end

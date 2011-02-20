@@ -11,10 +11,27 @@
 
 @interface FlickrPhoto : NSObject
 	{
+	NSImage* image;
+	NSString* title;
+	NSInteger commentCount;
 	
+	NSArray* sets;
+	NSArray* pools;
+	NSArray* tags;
+	NSArray* comments;
+	NSArray* favorites;
+	NSArray* galleries;
 	}
 
 @property(nonatomic, retain) NSImage* image;
-@property(nonatomic, retain) NSMutableDictionary* information;
+@property(nonatomic, retain) NSString* title;
+@property(nonatomic, assign) NSInteger commentCount;
+
+@property(nonatomic, retain) NSArray* sets;
+@property(nonatomic, retain) NSArray* pools;
+@property(nonatomic, retain) NSArray* tags;
+@property(nonatomic, retain) NSArray* comments;
+@property(nonatomic, retain) NSArray* favorites;
+@property(nonatomic, retain) NSArray* galleries;
 
 @end

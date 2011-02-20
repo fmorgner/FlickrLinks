@@ -7,16 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FlickrPhoto.h"
+#import "apiKey.h"
 
-
-@interface FlickrLinksController : NSObject
+@interface FlickrLinksController : NSObject <NSOutlineViewDataSource>
 	{
 	IBOutlet NSImageView* flickrPhotoView;
 	IBOutlet NSTextField* flickrPhotoID;
 	IBOutlet NSProgressIndicator* flickrPhotoLoadingIndicator;
-	IBOutlet NSTableView* flickrPhotoInformationView;
+	IBOutlet NSTableView* flickrTagsView;
+	
+	FlickrPhoto* flickrPhoto;
 	}
 
 - (IBAction) fetch:(id)sender;
+
+@property(nonatomic,retain) FlickrPhoto* flickrPhoto;
 
 @end
