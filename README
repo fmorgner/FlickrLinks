@@ -1,1 +1,3 @@
-to run, add a file called "apiKey" (whitout the quotes) containing nothing but your flickr.com API key
+to run, add a file called "apiKey.h" (whitout the quotes) containing nothing but your flickr.com API key in the form of:
+
+static NSString* apiKey = @"your_key_here";
