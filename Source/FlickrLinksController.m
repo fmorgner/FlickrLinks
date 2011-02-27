@@ -23,6 +23,10 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	return self;
 	}
 
+- (void)awakeFromNib
+	{
+	}
+
 - (IBAction) fetch:(id)sender
 	{
 	FlickrPhoto* photo = [FlickrPhoto new];
@@ -208,9 +212,5 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	
 	return objectValue;	
 	}
-
-#pragma mark - NSURLConnectionDelegate methods
-
-
 
 @end
