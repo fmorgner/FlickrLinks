@@ -8,6 +8,8 @@
 
 #import "FlickrLinksController.h"
 
+#define MAX_VALUE 100.0
+
 static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 
 @implementation FlickrLinksController
@@ -19,17 +21,19 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	if((self = [super init]))
 		{
 		flickrPhoto = [FlickrPhoto new];
+		fetchedData = [[NSMutableData alloc] init];
 		}
 	return self;
 	}
 
 - (void)awakeFromNib
 	{
+	[flickrPhotoLoadingIndicator setMaxValue:MAX_VALUE];
+
 	}
 
 - (IBAction) fetch:(id)sender
 	{
-	FlickrPhoto* photo = [FlickrPhoto new];
 	NSString* photoID = [flickrPhotoID stringValue];
 	
 	NSURL* photoInformationURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@flickr.photos.getInfo&api_key=%@&photo_id=%@", apiCall, apiKey, photoID]];
@@ -38,121 +42,17 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	NSURL* photoFavoritesURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@flickr.photos.getFavorites&api_key=%@&photo_id=%@", apiCall, apiKey, photoID]];
 	NSURL* photoSizesURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@flickr.photos.getSizes&api_key=%@&photo_id=%@", apiCall, apiKey, photoID]];
 	NSURL* galleriesListForPhotoURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@flickr.galleries.getListForPhoto&api_key=%@&photo_id=%@", apiCall, apiKey, photoID]];
-	
-	NSData* fetchedData = nil;
-	NSURLResponse* response = nil;
-	NSError* error = nil;
-	NSXMLDocument* xmlDocument = nil;
 
-	{	
-	fetchedData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:photoInformationURL] returningResponse:&response error:&error];
-	xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
-
-	[photo setTitle:[[[xmlDocument nodesForXPath:@"rsp/photo/title" error:&error] objectAtIndex:0] stringValue]];
-	[photo setCommentCount:[[[[xmlDocument nodesForXPath:@"rsp/photo/comments" error:&error] objectAtIndex:0] stringValue] intValue]];
-
-	NSMutableArray* tagArray = [NSMutableArray array];
-	for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/photo/tags/tag" error:&error])
-		{
-		[tagArray addObject:[element stringValue]];
-		}
-	[photo setTags:tagArray];
-	[xmlDocument release];
-	} // fetch title, commentCount and tags
-
-	{
-	fetchedData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:photoAllContextsURL] returningResponse:&response error:&error];
-	xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
+	infoRequest = [[NSURLRequest alloc] initWithURL:photoInformationURL];
+	contextsRequest = [[NSURLRequest alloc] initWithURL:photoAllContextsURL];
+	commentsRequest = [[NSURLRequest alloc] initWithURL:photoCommentsURL];
+	favoritesRequest = [[NSURLRequest alloc] initWithURL:photoFavoritesURL];
+	galleriesRequest = [[NSURLRequest alloc] initWithURL:galleriesListForPhotoURL];
+	sizesRequest = [[NSURLRequest alloc] initWithURL:photoSizesURL];
 	
-	NSMutableArray* poolArray = [NSMutableArray array];
-	for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/pool" error:&error])
-		{
-		[poolArray addObject:[[element attributeForName:@"title"] stringValue]];
-		}	
-
-	NSMutableArray* setArray = [NSMutableArray array];
-	for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/set" error:&error])
-		{
-		[setArray addObject:[[element attributeForName:@"title"] stringValue]];
-		}	
-
-	[photo setPools:poolArray];
-	[photo setSets:setArray];
-	[xmlDocument release];
-	} // fetch pools and sets
-	
-	{
-	if([photo commentCount])
-		{
-		fetchedData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:photoCommentsURL] returningResponse:&response error:&error];
-		xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
-		NSMutableArray* commentsArray = [NSMutableArray array];
-		
-		[[xmlDocument nodesForXPath:@"rsp/comments/comment" error:&error] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-			[commentsArray addObject:[obj stringValue]];
-		}];
-		
-		[photo setComments:commentsArray];
-		[xmlDocument release];
-		}
-	} // fetch comments
-	
-	{
-	fetchedData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:photoFavoritesURL] returningResponse:&response error:&error];
-	xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
-
-	NSMutableArray* favoritesArray = [NSMutableArray array];
-	for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/photo/person" error:&error])
-		{
-		[favoritesArray addObject:[[element attributeForName:@"username"] stringValue]];
-		}
-	
-	[photo setFavorites:favoritesArray];
-	[xmlDocument release];
-	} // fetch favorites
-
-	{
-	fetchedData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:galleriesListForPhotoURL] returningResponse:&response error:&error];
-	xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
-
-	NSMutableArray* galleriesArray = [NSMutableArray array];
-	for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/galleries/gallery/title" error:&error])
-		{
-		[galleriesArray addObject:[element stringValue]];
-		}
-	
-	[photo setGalleries:galleriesArray];
-	[xmlDocument release];
-	} // fetch galleries
-	
-	{
-	NSURL* photoImageURL = nil;
-	fetchedData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:photoSizesURL] returningResponse:&response error:&error];
-	xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
-	
-	for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/sizes/size" error:&error])
-		{
-		if([[[element attributeForName:@"label"] stringValue] isEqualToString:@"Medium"])
-			{
-			photoImageURL = [NSURL URLWithString:[[element attributeForName:@"source"] stringValue]];
-			}
-		}
-	
-	fetchedData = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:photoImageURL] returningResponse:&response error:&error];
-	
-	[photo setImage:[[[NSImage alloc] initWithData:fetchedData ] autorelease]];
-	[xmlDocument release];
-	}
-	
-	flickrPhoto = photo;
-	
-	[flickrTagsView reloadData];
-	[flickrSetsView reloadData];
-	[flickrPoolsView reloadData];
-	[flickrGalleriesView reloadData];
-	[flickrCommentsView reloadData];
-	[flickrPhotoTitle setStringValue:flickrPhoto.title];
-	[flickrPhotoView setImage:flickrPhoto.image];
+	[NSURLConnection connectionWithRequest:infoRequest delegate:self];
+	activeRequest = infoRequest;
+	[flickrPhotoLoadingIndicator startAnimation:self];
 	}
 
 #pragma mark - NSTableViewDataSource methods
@@ -211,6 +111,145 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		}
 	
 	return objectValue;	
+	}
+
+#pragma mark - NSURLConnection methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+	{
+	[fetchedData appendData:data];
+	}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+	{
+	NSError* error;
+	
+	if(activeRequest == infoRequest)
+		{
+		xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
+
+		[flickrPhoto setTitle:[[[xmlDocument nodesForXPath:@"rsp/photo/title" error:&error] objectAtIndex:0] stringValue]];
+		[flickrPhoto setCommentCount:[[[[xmlDocument nodesForXPath:@"rsp/photo/comments" error:&error] objectAtIndex:0] stringValue] intValue]];
+
+		NSMutableArray* tagArray = [NSMutableArray array];
+		for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/photo/tags/tag" error:&error])
+			{
+			[tagArray addObject:[element stringValue]];
+			}
+		[flickrPhoto setTags:tagArray];
+		[xmlDocument release];
+		[flickrTagsView reloadData];
+		[fetchedData setLength:0];
+		[flickrPhotoTitle setStringValue:flickrPhoto.title];
+		[flickrPhotoLoadingIndicator incrementBy:16.6];
+		activeRequest = contextsRequest;
+		[NSURLConnection connectionWithRequest:contextsRequest delegate:self];
+		}
+	else if(activeRequest == contextsRequest)
+		{
+		xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
+	
+		NSMutableArray* poolArray = [NSMutableArray array];
+		for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/pool" error:&error])
+			{
+			[poolArray addObject:[[element attributeForName:@"title"] stringValue]];
+			}	
+
+		NSMutableArray* setArray = [NSMutableArray array];
+		for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/set" error:&error])
+			{
+			[setArray addObject:[[element attributeForName:@"title"] stringValue]];
+			}	
+
+		[flickrPhoto setPools:poolArray];
+		[flickrPhoto setSets:setArray];
+		[xmlDocument release];
+		[fetchedData setLength:0];
+		[flickrSetsView reloadData];
+		[flickrPoolsView reloadData];
+		[flickrPhotoLoadingIndicator incrementBy:16.6];
+		activeRequest = commentsRequest;
+		[NSURLConnection connectionWithRequest:commentsRequest delegate:self];
+		}
+	else if(activeRequest == commentsRequest)
+		{
+		xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
+		NSMutableArray* commentsArray = [NSMutableArray array];
+		
+		[[xmlDocument nodesForXPath:@"rsp/comments/comment" error:&error] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+			[commentsArray addObject:[obj stringValue]];
+		}];
+		
+		[flickrPhoto setComments:commentsArray];
+		[xmlDocument release];
+		[flickrCommentsView reloadData];
+		[fetchedData setLength:0];
+		[flickrPhotoLoadingIndicator incrementBy:16.6];
+		activeRequest = favoritesRequest;
+		[NSURLConnection connectionWithRequest:favoritesRequest delegate:self];
+		}
+	else if(activeRequest == favoritesRequest)
+		{
+		xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
+
+		NSMutableArray* favoritesArray = [NSMutableArray array];
+		for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/photo/person" error:&error])
+			{
+			[favoritesArray addObject:[[element attributeForName:@"username"] stringValue]];
+			}
+		
+		[flickrPhoto setFavorites:favoritesArray];
+		[xmlDocument release];
+		[fetchedData setLength:0];
+		[flickrPhotoLoadingIndicator incrementBy:16.6];
+		activeRequest = galleriesRequest;
+		[NSURLConnection connectionWithRequest:galleriesRequest delegate:self];
+		}
+	else if(activeRequest == galleriesRequest)
+		{
+		xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
+
+		NSMutableArray* galleriesArray = [NSMutableArray array];
+		for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/galleries/gallery/title" error:&error])
+			{
+			[galleriesArray addObject:[element stringValue]];
+			}
+
+		[flickrPhoto setGalleries:galleriesArray];
+		[xmlDocument release];
+		[flickrGalleriesView reloadData];
+		[fetchedData setLength:0];
+		[flickrPhotoLoadingIndicator incrementBy:16.6];
+		activeRequest = sizesRequest;
+		[NSURLConnection connectionWithRequest:sizesRequest delegate:self];
+		}
+	else if(activeRequest == sizesRequest)
+		{
+		NSURL* photoImageURL = nil;
+		xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
+		
+		for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/sizes/size" error:&error])
+			{
+			if([[[element attributeForName:@"label"] stringValue] isEqualToString:@"Medium"])
+				{
+				photoImageURL = [NSURL URLWithString:[[element attributeForName:@"source"] stringValue]];
+				}
+			}
+		photoRequest = [[NSURLRequest alloc] initWithURL:photoImageURL];
+		[flickrPhotoLoadingIndicator incrementBy:8.3];
+		[fetchedData setLength:0];
+		activeRequest = photoRequest;
+		[NSURLConnection connectionWithRequest:photoRequest delegate:self];
+		[xmlDocument release];
+		}
+	else if(activeRequest == photoRequest)
+		{
+		[flickrPhoto setImage:[[[NSImage alloc] initWithData:fetchedData ] autorelease]];
+		[flickrPhotoView setImage:flickrPhoto.image];
+		[flickrPhotoLoadingIndicator setDoubleValue:[flickrPhotoLoadingIndicator maxValue]];
+		[fetchedData setLength:0];
+		}
+	
 	}
 
 @end
