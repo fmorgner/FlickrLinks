@@ -10,7 +10,7 @@
 #import "FlickrPhoto.h"
 #import "apiKey.h"
 
-@interface FlickrLinksController : NSObject <NSTableViewDataSource,NSURLConnectionDelegate>
+@interface FlickrLinksController : NSObject <NSTableViewDataSource, NSConnectionDelegate>
 	{
 	IBOutlet NSImageView* flickrPhotoView;
 	IBOutlet NSTextField* flickrPhotoID;
