@@ -11,6 +11,12 @@
 
 @implementation FlickrAPIResponse
 
+@synthesize status;
+@synthesize dataFormat;
+@synthesize unparsedData;
+@synthesize content;
+@synthesize error;
+
 - (id)init
 	{
 	if ((self = [super init]))
@@ -18,6 +24,21 @@
 		}
 	return self;
 	}
+
+- (id)initWithData:(NSData*)theData
+	{
+	if ((self = [super init]))
+		{
+		
+		}
+	return self;
+	}
+
++ (FlickrAPIResponse*)responseWithData:(NSData*)theData;
+	{
+	return [[[FlickrAPIResponse alloc] initWithData:theData] autorelease];
+	}
+
 
 - (void)dealloc
 {
