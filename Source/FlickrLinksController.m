@@ -20,7 +20,8 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	{
 	if((self = [super init]))
 		{
-		flickrPhoto = [FlickrPhoto new];
+		photoHistory = [NSMutableArray new];
+		photoHistoryPosition = 0;
 		fetchedData = [[NSMutableData alloc] init];
 		}
 	return self;
@@ -29,13 +30,51 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 - (void)awakeFromNib
 	{
 	[flickrPhotoLoadingIndicator setMaxValue:MAX_VALUE];
+	[backButton setEnabled:NO];
+	[forwardButton setEnabled:NO];
 	[[flickrPhotoID window] makeFirstResponder:flickrPhotoID];
 	}
 
+- (void)updateUI
+	{
+	([photoHistory count] && photoHistoryPosition) ? [backButton setEnabled:YES] : [backButton setEnabled:NO];	
+	([photoHistory count] && photoHistoryPosition + 1 < [photoHistory count]) ? [forwardButton setEnabled:YES] : [forwardButton setEnabled:NO];	
+
+
+	[flickrPhotoTitle setStringValue:[NSString stringWithFormat:@"%@ (%@)", flickrPhoto.title, flickrPhoto.ID]];
+	[flickrTagsView reloadData];
+	[flickrSetsView reloadData];
+	[flickrPoolsView reloadData];
+	[flickrGalleriesView reloadData];
+	[flickrCommentsView reloadData];
+	[flickrPhotoView setImage:[flickrPhoto image]];
+	}
+
+- (IBAction) goBack:(id)sender
+	{
+	photoHistoryPosition--;
+	flickrPhoto = [photoHistory objectAtIndex:photoHistoryPosition];
+	[self updateUI];
+	}
+	
+- (IBAction) goForward:(id)sender
+	{
+	photoHistoryPosition++;
+	flickrPhoto = [photoHistory objectAtIndex:photoHistoryPosition];
+	[self updateUI];
+	}
+
+
 - (IBAction) fetch:(id)sender
 	{
-	[flickrPhotoLoadingIndicator setDoubleValue:0.0];
+	if([[flickrPhotoID stringValue] isEqualToString:@""])
+		return;
+	
 	NSString* photoID = [flickrPhotoID stringValue];
+	flickrPhoto = [FlickrPhoto new];
+	[flickrPhotoLoadingIndicator setDoubleValue:0.0];
+	
+	flickrPhoto.ID = photoID;
 	
 	NSURL* photoInformationURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@flickr.photos.getInfo&api_key=%@&photo_id=%@", apiCall, apiKey, photoID]];
 	NSURL* photoAllContextsURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@flickr.photos.getAllContexts&api_key=%@&photo_id=%@", apiCall, apiKey, photoID]];
@@ -128,7 +167,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	if(activeRequest == infoRequest)
 		{
 		xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
-
+				
 		[flickrPhoto setTitle:[[[xmlDocument nodesForXPath:@"rsp/photo/title" error:&error] objectAtIndex:0] stringValue]];
 		[flickrPhoto setCommentCount:[[[[xmlDocument nodesForXPath:@"rsp/photo/comments" error:&error] objectAtIndex:0] stringValue] intValue]];
 
@@ -141,7 +180,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		[xmlDocument release];
 		[flickrTagsView reloadData];
 		[fetchedData setLength:0];
-		[flickrPhotoTitle setStringValue:flickrPhoto.title];
+		[flickrPhotoTitle setStringValue:[NSString stringWithFormat:@"%@ (%@)", flickrPhoto.title, flickrPhoto.ID]];
 		[flickrPhotoLoadingIndicator incrementBy:16.6];
 		activeRequest = contextsRequest;
 		[NSURLConnection connectionWithRequest:contextsRequest delegate:self];
@@ -249,8 +288,14 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		[flickrPhotoView setImage:flickrPhoto.image];
 		[flickrPhotoLoadingIndicator setDoubleValue:[flickrPhotoLoadingIndicator maxValue]];
 		[fetchedData setLength:0];
-		}
+		[photoHistory addObject:flickrPhoto];
+		[flickrPhoto release];
+		photoHistoryPosition = [photoHistory count] - 1;
+		([photoHistory count] && photoHistoryPosition) ? [backButton setEnabled:YES] : [backButton setEnabled:NO];	
+		([photoHistory count] && photoHistoryPosition + 1 < [photoHistory count]) ? [forwardButton setEnabled:YES] : [forwardButton setEnabled:NO];	
+	  }
+  }
 	
-	}
+# pragma mark - Textfield delegate methods
 
 @end

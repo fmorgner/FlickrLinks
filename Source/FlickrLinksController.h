@@ -10,7 +10,7 @@
 #import "FlickrPhoto.h"
 #import "apiKey.h"
 
-@interface FlickrLinksController : NSObject <NSTableViewDataSource, NSConnectionDelegate>
+@interface FlickrLinksController : NSObject <NSTableViewDataSource,NSTextFieldDelegate>
 	{
 	IBOutlet NSImageView* flickrPhotoView;
 	IBOutlet NSTextField* flickrPhotoID;
@@ -22,6 +22,9 @@
 	IBOutlet NSTableView* flickrPoolsView;
 	IBOutlet NSTableView* flickrGalleriesView;
 	IBOutlet NSTableView* flickrCommentsView;
+	
+	IBOutlet NSButton* backButton;
+	IBOutlet NSButton* forwardButton;
 
 	NSURLRequest* infoRequest;
 	NSURLRequest* contextsRequest;
@@ -36,9 +39,15 @@
 	NSXMLDocument* xmlDocument;	
 
 	FlickrPhoto* flickrPhoto;
+	NSMutableArray* photoHistory;
+	NSInteger photoHistoryPosition;
 	}
 
 - (IBAction) fetch:(id)sender;
+- (IBAction) goBack:(id)sender;
+- (IBAction) goForward:(id)sender;
+- (void)updateUI;
+
 
 @property(nonatomic,retain) FlickrPhoto* flickrPhoto;
 
