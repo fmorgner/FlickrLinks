@@ -48,6 +48,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	[flickrGalleriesView reloadData];
 	[flickrCommentsView reloadData];
 	[flickrPhotoView setImage:[flickrPhoto image]];
+	[flickrPhotoID setStringValue:flickrPhoto.ID];
 	}
 
 - (IBAction) goBack:(id)sender
@@ -169,7 +170,14 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	if(activeRequest == infoRequest)
 		{
 		xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
-				
+		
+		if([[xmlDocument nodesForXPath:@"rsp/err" error:&error] count] && [[[[[xmlDocument nodesForXPath:@"rsp/err" error:&error] objectAtIndex:0] attributeForName:@"code"] stringValue] intValue] == 1)
+			{
+			isFetching = NO;
+			[fetchedData setLength:0];
+			return;
+			}
+		
 		[flickrPhoto setTitle:[[[xmlDocument nodesForXPath:@"rsp/photo/title" error:&error] objectAtIndex:0] stringValue]];
 		[flickrPhoto setCommentCount:[[[[xmlDocument nodesForXPath:@"rsp/photo/comments" error:&error] objectAtIndex:0] stringValue] intValue]];
 
