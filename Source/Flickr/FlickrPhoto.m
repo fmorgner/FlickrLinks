@@ -20,6 +20,9 @@
 @synthesize title;
 @synthesize favorites;
 @synthesize galleries;
+@synthesize ID;
+
+#pragma mark - Object lifecycle
 
 - (id)init
 	{

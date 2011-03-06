@@ -21,6 +21,8 @@
 	NSArray* comments;
 	NSArray* favorites;
 	NSArray* galleries;
+	
+	NSString* ID;
 	}
 
 
@@ -34,5 +36,7 @@
 @property(nonatomic, retain) NSArray* comments;
 @property(nonatomic, retain) NSArray* favorites;
 @property(nonatomic, retain) NSArray* galleries;
+
+@property(nonatomic, retain) NSString* ID;
 
 @end
