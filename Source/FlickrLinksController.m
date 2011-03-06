@@ -34,6 +34,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 
 - (IBAction) fetch:(id)sender
 	{
+	[flickrPhotoLoadingIndicator setDoubleValue:0.0];
 	NSString* photoID = [flickrPhotoID stringValue];
 	
 	NSURL* photoInformationURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@flickr.photos.getInfo&api_key=%@&photo_id=%@", apiCall, apiKey, photoID]];
