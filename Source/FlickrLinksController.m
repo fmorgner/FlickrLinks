@@ -175,7 +175,8 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 			{
 			isFetching = NO;
 			[fetchedData setLength:0];
-			exit(0);
+			[self updateUI];
+			[flickrPhotoView setImage:[NSImage imageNamed:@"notfound"]];
 			return;
 			}
 		

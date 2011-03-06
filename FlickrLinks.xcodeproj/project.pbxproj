@@ -27,6 +27,7 @@
 		BB0BDECF132022F700CD571A /* OAuthSignerHMAC.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0BDEC2132022F700CD571A /* OAuthSignerHMAC.m */; };
 		BB0BDED0132022F700CD571A /* OAuthToken.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0BDEC5132022F700CD571A /* OAuthToken.m */; };
 		BB0BDED3132023D700CD571A /* FlickrAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0BDED2132023D700CD571A /* FlickrAPIResponse.m */; };
+		BB121F311323F61E007D2DAA /* notfound.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB121F301323F61E007D2DAA /* notfound.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		BB0BDEC5132022F700CD571A /* OAuthToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthToken.m; sourceTree = "<group>"; };
 		BB0BDED1132023D700CD571A /* FlickrAPIResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIResponse.h; sourceTree = "<group>"; };
 		BB0BDED2132023D700CD571A /* FlickrAPIResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrAPIResponse.m; sourceTree = "<group>"; };
+		BB121F301323F61E007D2DAA /* notfound.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = notfound.jpg; sourceTree = "<group>"; };
 		BB31BA6B130FF2BE009A9026 /* apiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = apiKey.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 		BB031FD0130BD77800350873 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BB121F301323F61E007D2DAA /* notfound.jpg */,
 				BB31BA6B130FF2BE009A9026 /* apiKey.h */,
 				BB031FD1130BD77800350873 /* FlickrLinks-Info.plist */,
 				BB031FD2130BD77800350873 /* InfoPlist.strings */,
@@ -247,6 +250,7 @@
 				BB031FD4130BD77800350873 /* InfoPlist.strings in Resources */,
 				BB031FDA130BD77800350873 /* Credits.rtf in Resources */,
 				BB031FE0130BD77800350873 /* MainMenu.xib in Resources */,
+				BB121F311323F61E007D2DAA /* notfound.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
