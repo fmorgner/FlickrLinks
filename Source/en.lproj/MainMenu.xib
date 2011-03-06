@@ -1473,7 +1473,7 @@
 											<object class="NSMutableArray" key="NSTableColumns">
 												<bool key="EncodedWithXMLCoder">YES</bool>
 												<object class="NSTableColumn" id="1038685359">
-													<string key="NSIdentifier">description</string>
+													<string key="NSIdentifier">tags</string>
 													<double key="NSWidth">199</double>
 													<double key="NSMinWidth">40</double>
 													<double key="NSMaxWidth">1000</double>
@@ -1622,7 +1622,7 @@
 											<object class="NSMutableArray" key="NSTableColumns">
 												<bool key="EncodedWithXMLCoder">YES</bool>
 												<object class="NSTableColumn" id="578220222">
-													<string key="NSIdentifier">description</string>
+													<string key="NSIdentifier">sets</string>
 													<double key="NSWidth">199</double>
 													<double key="NSMinWidth">40</double>
 													<double key="NSMaxWidth">1000</double>
@@ -1807,7 +1807,7 @@
 											<object class="NSMutableArray" key="NSTableColumns">
 												<bool key="EncodedWithXMLCoder">YES</bool>
 												<object class="NSTableColumn" id="667286191">
-													<string key="NSIdentifier">description</string>
+													<string key="NSIdentifier">pools</string>
 													<double key="NSWidth">199</double>
 													<double key="NSMinWidth">40</double>
 													<double key="NSMaxWidth">1000</double>
@@ -1926,7 +1926,7 @@
 											<object class="NSMutableArray" key="NSTableColumns">
 												<bool key="EncodedWithXMLCoder">YES</bool>
 												<object class="NSTableColumn" id="88582314">
-													<string key="NSIdentifier">description</string>
+													<string key="NSIdentifier">comments</string>
 													<double key="NSWidth">418</double>
 													<double key="NSMinWidth">40</double>
 													<double key="NSMaxWidth">1000</double>
@@ -2045,7 +2045,7 @@
 											<object class="NSMutableArray" key="NSTableColumns">
 												<bool key="EncodedWithXMLCoder">YES</bool>
 												<object class="NSTableColumn" id="1014885452">
-													<string key="NSIdentifier">description</string>
+													<string key="NSIdentifier">galleries</string>
 													<double key="NSWidth">199</double>
 													<double key="NSMinWidth">40</double>
 													<double key="NSMaxWidth">1000</double>
@@ -2211,9 +2211,9 @@
 								<reference key="NSSupport" ref="297271317"/>
 								<reference key="NSControlView" ref="157099257"/>
 								<int key="NSButtonFlags">-2038284033</int>
-								<int key="NSButtonFlags2">129</int>
+								<int key="NSButtonFlags2">268435585</int>
 								<string key="NSAlternateContents"/>
-								<string key="NSKeyEquivalent"/>
+								<string key="NSKeyEquivalent"></string>
 								<int key="NSPeriodicDelay">200</int>
 								<int key="NSPeriodicInterval">25</int>
 							</object>
@@ -2235,9 +2235,9 @@
 								<reference key="NSSupport" ref="297271317"/>
 								<reference key="NSControlView" ref="748315021"/>
 								<int key="NSButtonFlags">-2038284033</int>
-								<int key="NSButtonFlags2">129</int>
+								<int key="NSButtonFlags2">268435585</int>
 								<string key="NSAlternateContents"/>
-								<string key="NSKeyEquivalent"/>
+								<string type="base64-UTF8" key="NSKeyEquivalent">CQ</string>
 								<int key="NSPeriodicDelay">200</int>
 								<int key="NSPeriodicInterval">25</int>
 							</object>
