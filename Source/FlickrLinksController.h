@@ -41,6 +41,8 @@
 	FlickrPhoto* flickrPhoto;
 	NSMutableArray* photoHistory;
 	NSInteger photoHistoryPosition;
+	
+	BOOL isFetching;
 	}
 
 - (IBAction) fetch:(id)sender;

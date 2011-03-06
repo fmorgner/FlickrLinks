@@ -67,8 +67,10 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 
 - (IBAction) fetch:(id)sender
 	{
-	if([[flickrPhotoID stringValue] isEqualToString:@""])
+	if([[flickrPhotoID stringValue] isEqualToString:@""] || isFetching)
 		return;
+	
+	isFetching = YES;
 	
 	NSString* photoID = [flickrPhotoID stringValue];
 	flickrPhoto = [FlickrPhoto new];
@@ -293,6 +295,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		photoHistoryPosition = [photoHistory count] - 1;
 		([photoHistory count] && photoHistoryPosition) ? [backButton setEnabled:YES] : [backButton setEnabled:NO];	
 		([photoHistory count] && photoHistoryPosition + 1 < [photoHistory count]) ? [forwardButton setEnabled:YES] : [forwardButton setEnabled:NO];	
+		isFetching = NO;
 	  }
   }
 	
