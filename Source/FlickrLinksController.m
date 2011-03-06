@@ -29,7 +29,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 - (void)awakeFromNib
 	{
 	[flickrPhotoLoadingIndicator setMaxValue:MAX_VALUE];
-
+	[[flickrPhotoID window] makeFirstResponder:flickrPhotoID];
 	}
 
 - (IBAction) fetch:(id)sender
