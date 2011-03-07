@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FlickrAPIResponse.h"
 #import "FlickrPhoto.h"
 #import "apiKey.h"
 

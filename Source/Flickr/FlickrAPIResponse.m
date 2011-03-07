@@ -29,7 +29,33 @@
 	{
 	if ((self = [super init]))
 		{
+		unparsedData = theData;
 		
+		NSError* xmlError = nil;
+		NSArray* tempArray = nil;
+		
+		NSXMLDocument* document = [[NSXMLDocument alloc] initWithData:theData options:0 error:&xmlError];
+		if(xmlError != nil)
+			return nil;
+		
+		tempArray = [document nodesForXPath:@"rsp" error:&xmlError];
+		
+		if(![tempArray count])
+			return nil;
+		
+		status = [[[tempArray objectAtIndex:0] attributeForName:@"stat"] stringValue];
+		
+		if([status isEqualToString:@"fail"])
+			{
+			tempArray = [document nodesForXPath:@"rsp/err" error:&xmlError];
+			NSString* errorDescription = [[[tempArray objectAtIndex:0] attributeForName:@"msg"] stringValue];
+			NSInteger errorCode = [[[[tempArray objectAtIndex:0] attributeForName:@"code"] stringValue] intValue];
+			error = [NSError errorWithDomain:kFlickrErrorDomain code:errorCode userInfo:[NSDictionary dictionaryWithObject:errorDescription forKey:NSLocalizedDescriptionKey]];
+			}
+		else if([status isEqualToString:@"ok"])
+			{
+			content = [[[document nodesForXPath:@"rsp" error:&xmlError] objectAtIndex:0] children];
+			}
 		}
 	return self;
 	}

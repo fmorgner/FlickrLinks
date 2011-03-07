@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString* kFlickrErrorDomain = @"FlickrErrorDomain";
 
 @interface FlickrAPIResponse : NSObject
 	{

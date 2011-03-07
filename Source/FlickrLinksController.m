@@ -169,6 +169,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	
 	if(activeRequest == infoRequest)
 		{
+		FlickrAPIResponse* response = [FlickrAPIResponse responseWithData:fetchedData];
 		xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
 		
 		if([[xmlDocument nodesForXPath:@"rsp/err" error:&error] count] && [[[[[xmlDocument nodesForXPath:@"rsp/err" error:&error] objectAtIndex:0] attributeForName:@"code"] stringValue] intValue] == 1)
@@ -308,7 +309,14 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		isFetching = NO;
 	  }
   }
-	
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+	{
+	isFetching = NO;
+	NSAlert* alert = [NSAlert alertWithError:error];
+	[alert runModal];
+	}
+
 # pragma mark - Textfield delegate methods
 
 @end
