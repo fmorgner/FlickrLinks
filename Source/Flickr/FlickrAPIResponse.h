@@ -3,7 +3,7 @@
 //  FlickrLinks
 //
 //  Created by Felix Morgner on 03.03.11.
-//  Copyright 2011 Bühler AG. All rights reserved.
+//  Copyright 2011 Felix Morgner. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,9 +13,8 @@ static NSString* kFlickrErrorDomain = @"FlickrErrorDomain";
 @interface FlickrAPIResponse : NSObject
 	{
 	NSString* status;
-	NSString* dataFormat;
-	NSData* unparsedData;
-	NSArray* content;
+	NSData* rawContent;
+	NSXMLDocument* xmlContent;
 	NSError* error;
 	}
 
@@ -23,9 +22,8 @@ static NSString* kFlickrErrorDomain = @"FlickrErrorDomain";
 + (FlickrAPIResponse*)responseWithData:(NSData*)theData;
 
 @property(nonatomic,readonly) NSString* status;
-@property(nonatomic,readonly) NSString* dataFormat;
-@property(nonatomic,readonly) NSData* unparsedData;
-@property(nonatomic,readonly) NSArray* content;
+@property(nonatomic,readonly) NSData* rawContent;
+@property(nonatomic,readonly) NSXMLDocument* xmlContent;
 @property(nonatomic,readonly) NSError* error;
 
 @end

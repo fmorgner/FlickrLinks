@@ -3,7 +3,7 @@
 //  FlickrLinks
 //
 //  Created by Felix Morgner on 16.02.11.
-//  Copyright 2011 Bühler AG. All rights reserved.
+//  Copyright 2011 Felix Morgner. All rights reserved.
 //
 
 #import "FlickrLinksController.h"
