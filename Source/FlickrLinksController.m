@@ -74,10 +74,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	isFetching = YES;
 	
 	NSString* photoID = [flickrPhotoID stringValue];
-	flickrPhoto = [FlickrPhoto new];
 	[flickrPhotoLoadingIndicator setDoubleValue:0.0];
-	
-	flickrPhoto.ID = photoID;
 	
 	NSURL* photoInformationURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@flickr.photos.getInfo&api_key=%@&photo_id=%@", apiCall, apiKey, photoID]];
 	NSURL* photoAllContextsURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@flickr.photos.getAllContexts&api_key=%@&photo_id=%@", apiCall, apiKey, photoID]];
@@ -170,9 +167,8 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	if(activeRequest == infoRequest)
 		{
 		FlickrAPIResponse* response = [FlickrAPIResponse responseWithData:fetchedData];
-		xmlDocument = [[NSXMLDocument alloc] initWithData:fetchedData options:0 error:&error];
-		
-		if([[xmlDocument nodesForXPath:@"rsp/err" error:&error] count] && [[[[[xmlDocument nodesForXPath:@"rsp/err" error:&error] objectAtIndex:0] attributeForName:@"code"] stringValue] intValue] == 1)
+				
+		if([response.status isEqualToString:@"fail"] && [response.error code] == 1)
 			{
 			isFetching = NO;
 			[fetchedData setLength:0];
@@ -180,6 +176,8 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 			[flickrPhotoView setImage:[NSImage imageNamed:@"notfound"]];
 			return;
 			}
+
+		[self setFlickrPhoto:[FlickrPhoto photoWithAPIResponse:response error:nil]];
 		
 		[flickrPhoto setTitle:[[[xmlDocument nodesForXPath:@"rsp/photo/title" error:&error] objectAtIndex:0] stringValue]];
 		[flickrPhoto setCommentCount:[[[[xmlDocument nodesForXPath:@"rsp/photo/comments" error:&error] objectAtIndex:0] stringValue] intValue]];
