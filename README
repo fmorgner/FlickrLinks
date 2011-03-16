@@ -1,3 +1,6 @@
 to run, add a file called "apiKey.h" (whitout the quotes) containing nothing but your flickr.com API key in the form of:
 
 static NSString* apiKey = @"your_key_here";
+
+To compile FlickrLinks you need to clone fmorgner/FlickrKit and fmorgner/OAuthKit and set up the included Xcode 4 Workspace accordingly.
+If you are using Xcode 3 you need to set up the dependencies manually. Please refer to Google for more information about setting up the dependencies.
