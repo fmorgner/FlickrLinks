@@ -131,7 +131,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	
 	if([aTableView isEqualTo:flickrTagsView])
 		{
-		objectValue = [flickrPhoto.tags objectAtIndex:rowIndex];
+		objectValue = [[flickrPhoto.tags objectAtIndex:rowIndex] name];
 		}
 	else if([aTableView isEqualTo:flickrSetsView])
 		{
@@ -163,32 +163,22 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 	{
 	NSError* error;
+
+	FlickrAPIResponse* response = [[FlickrAPIResponse alloc] initWithData:fetchedData];
+			
+	if([response.status isEqualToString:@"fail"] && [response.error code] == 1)
+		{
+		isFetching = NO;
+		[fetchedData setLength:0];
+		[self updateUI];
+		[flickrPhotoView setImage:[NSImage imageNamed:@"notfound"]];
+		return;
+		}
 	
 	if(activeRequest == infoRequest)
 		{
-		FlickrAPIResponse* response = [FlickrAPIResponse responseWithData:fetchedData];
-				
-		if([response.status isEqualToString:@"fail"] && [response.error code] == 1)
-			{
-			isFetching = NO;
-			[fetchedData setLength:0];
-			[self updateUI];
-			[flickrPhotoView setImage:[NSImage imageNamed:@"notfound"]];
-			return;
-			}
-
 		[self setFlickrPhoto:[FlickrPhoto photoWithAPIResponse:response error:nil]];
 		
-		[flickrPhoto setTitle:[[[xmlDocument nodesForXPath:@"rsp/photo/title" error:&error] objectAtIndex:0] stringValue]];
-		[flickrPhoto setCommentCount:[[[[xmlDocument nodesForXPath:@"rsp/photo/comments" error:&error] objectAtIndex:0] stringValue] intValue]];
-
-		NSMutableArray* tagArray = [NSMutableArray array];
-		for(NSXMLElement* element in 	[xmlDocument nodesForXPath:@"rsp/photo/tags/tag" error:&error])
-			{
-			[tagArray addObject:[element stringValue]];
-			}
-		[flickrPhoto setTags:tagArray];
-		[xmlDocument release];
 		[flickrTagsView reloadData];
 		[fetchedData setLength:0];
 		[flickrPhotoTitle setStringValue:[NSString stringWithFormat:@"%@ (%@)", flickrPhoto.title, flickrPhoto.ID]];

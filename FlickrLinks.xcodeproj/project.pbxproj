@@ -17,7 +17,23 @@
 		BB121F311323F61E007D2DAA /* notfound.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB121F301323F61E007D2DAA /* notfound.jpg */; };
 		C769259D132FF244005F6AC3 /* FlickrKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
 		C769259F132FF248005F6AC3 /* OAuthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C769259E132FF248005F6AC3 /* OAuthKit.framework */; };
+		C7C3AF5C133009D500F8C083 /* FlickrKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
+		C7C3AF5D133009D700F8C083 /* OAuthKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C769259E132FF248005F6AC3 /* OAuthKit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C7C3AF5A133009AE00F8C083 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C7C3AF5C133009D500F8C083 /* FlickrKit.framework in CopyFiles */,
+				C7C3AF5D133009D700F8C083 /* OAuthKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BB031FC5130BD77800350873 /* FlickrLinks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrLinks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +146,7 @@
 				BB031FC1130BD77700350873 /* Sources */,
 				BB031FC2130BD77700350873 /* Frameworks */,
 				BB031FC3130BD77700350873 /* Resources */,
+				C7C3AF5A133009AE00F8C083 /* CopyFiles */,
 			);
 			buildRules = (
 			);
