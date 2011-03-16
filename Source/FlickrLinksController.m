@@ -164,7 +164,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	{
 	NSError* error;
 
-	FlickrAPIResponse* response = [FlickrAPIResponse responseWithData:fetchedData];
+	FlickrAPIResponse* response = [[FlickrAPIResponse alloc] initWithData:fetchedData];
 			
 	if([response.status isEqualToString:@"fail"] && [response.error code] == 1)
 		{
@@ -172,6 +172,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		[fetchedData setLength:0];
 		[self updateUI];
 		[flickrPhotoView setImage:[NSImage imageNamed:@"notfound"]];
+		[response release];
 		return;
 		}
 	
@@ -290,12 +291,12 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		[flickrPhotoLoadingIndicator setDoubleValue:[flickrPhotoLoadingIndicator maxValue]];
 		[fetchedData setLength:0];
 		[photoHistory addObject:flickrPhoto];
-//		[flickrPhoto release];
 		photoHistoryPosition = [photoHistory count] - 1;
 		([photoHistory count] && photoHistoryPosition) ? [backButton setEnabled:YES] : [backButton setEnabled:NO];	
 		([photoHistory count] && photoHistoryPosition + 1 < [photoHistory count]) ? [forwardButton setEnabled:YES] : [forwardButton setEnabled:NO];	
 		isFetching = NO;
 	  }
+	[response release];
   }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
