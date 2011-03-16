@@ -164,7 +164,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	{
 	NSError* error;
 
-	FlickrAPIResponse* response = [[FlickrAPIResponse alloc] initWithData:fetchedData];
+	FlickrAPIResponse* response = [FlickrAPIResponse responseWithData:fetchedData];
 			
 	if([response.status isEqualToString:@"fail"] && [response.error code] == 1)
 		{
@@ -290,7 +290,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		[flickrPhotoLoadingIndicator setDoubleValue:[flickrPhotoLoadingIndicator maxValue]];
 		[fetchedData setLength:0];
 		[photoHistory addObject:flickrPhoto];
-		[flickrPhoto release];
+//		[flickrPhoto release];
 		photoHistoryPosition = [photoHistory count] - 1;
 		([photoHistory count] && photoHistoryPosition) ? [backButton setEnabled:YES] : [backButton setEnabled:NO];	
 		([photoHistory count] && photoHistoryPosition + 1 < [photoHistory count]) ? [forwardButton setEnabled:YES] : [forwardButton setEnabled:NO];	
