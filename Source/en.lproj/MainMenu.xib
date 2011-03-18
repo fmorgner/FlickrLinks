@@ -2207,8 +2207,9 @@
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="27593151">
-								<int key="NSCellFlags">130560</int>
+								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">33554432</int>
+								<reference key="NSSupport" ref="297271317"/>
 								<int key="NSAlign">0</int>
 								<int key="NSScale">0</int>
 								<int key="NSStyle">0</int>
@@ -3202,6 +3203,70 @@
 						<reference key="destination" ref="663352994"/>
 					</object>
 					<int key="connectionID">700</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">toolTip: self.flickrPhoto.license.name</string>
+						<reference key="source" ref="374097073"/>
+						<reference key="destination" ref="2898438"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="374097073"/>
+							<reference key="NSDestination" ref="2898438"/>
+							<string key="NSLabel">toolTip: self.flickrPhoto.license.name</string>
+							<string key="NSBinding">toolTip</string>
+							<string key="NSKeyPath">self.flickrPhoto.license.name</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">704</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">toolTip: self.flickrPhoto.license.name</string>
+						<reference key="source" ref="902591556"/>
+						<reference key="destination" ref="2898438"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="902591556"/>
+							<reference key="NSDestination" ref="2898438"/>
+							<string key="NSLabel">toolTip: self.flickrPhoto.license.name</string>
+							<string key="NSBinding">toolTip</string>
+							<string key="NSKeyPath">self.flickrPhoto.license.name</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">708</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">toolTip: self.flickrPhoto.license.name</string>
+						<reference key="source" ref="428717799"/>
+						<reference key="destination" ref="2898438"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="428717799"/>
+							<reference key="NSDestination" ref="2898438"/>
+							<string key="NSLabel">toolTip: self.flickrPhoto.license.name</string>
+							<string key="NSBinding">toolTip</string>
+							<string key="NSKeyPath">self.flickrPhoto.license.name</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">711</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">toolTip: self.flickrPhoto.license.name</string>
+						<reference key="source" ref="663352994"/>
+						<reference key="destination" ref="2898438"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="663352994"/>
+							<reference key="NSDestination" ref="2898438"/>
+							<string key="NSLabel">toolTip: self.flickrPhoto.license.name</string>
+							<string key="NSBinding">toolTip</string>
+							<string key="NSKeyPath">self.flickrPhoto.license.name</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">715</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4949,7 +5014,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">700</int>
+			<int key="maxID">715</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5009,7 +5074,6 @@
 						<string key="forwardButton">NSButton</string>
 						<string key="fourthLicenseView">NSImageView</string>
 						<string key="secondLicenseView">NSImageView</string>
-						<string key="secondRightlicenseView">NSImageView</string>
 						<string key="thirdLicenseView">NSImageView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -5067,10 +5131,6 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="secondLicenseView">
 							<string key="name">secondLicenseView</string>
-							<string key="candidateClassName">NSImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="secondRightlicenseView">
-							<string key="name">secondRightlicenseView</string>
 							<string key="candidateClassName">NSImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="thirdLicenseView">
