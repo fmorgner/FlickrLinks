@@ -40,6 +40,37 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	([photoHistory count] && photoHistoryPosition) ? [backButton setEnabled:YES] : [backButton setEnabled:NO];	
 	([photoHistory count] && photoHistoryPosition + 1 < [photoHistory count]) ? [forwardButton setEnabled:YES] : [forwardButton setEnabled:NO];	
 
+	NSArray* licenseImages = [[FlickrKitResourceManager sharedManager] imagesForLicense:flickrPhoto.license];
+	
+	switch([licenseImages count])
+		{
+		case 1:
+			[secondLicenseView setImage:nil];
+			[thirdLicenseView setImage:nil];
+			[fourthLicenseView setImage:nil];
+			[firstLicenseView setImage:[licenseImages objectAtIndex:0]];
+			break;
+		case 2:
+			[thirdLicenseView setImage:nil];
+			[fourthLicenseView setImage:nil];
+			[firstLicenseView setImage:[licenseImages objectAtIndex:1]];
+			[secondLicenseView setImage:[licenseImages objectAtIndex:0]];
+			break;
+		case 3:
+			[fourthLicenseView setImage:nil];
+			[firstLicenseView setImage:[licenseImages objectAtIndex:2]];
+			[secondLicenseView setImage:[licenseImages objectAtIndex:1]];
+			[thirdLicenseView setImage:[licenseImages objectAtIndex:0]];
+			break;
+		case 4:
+			[firstLicenseView setImage:[licenseImages objectAtIndex:3]];
+			[secondLicenseView setImage:[licenseImages objectAtIndex:2]];
+			[thirdLicenseView setImage:[licenseImages objectAtIndex:1]];
+			[fourthLicenseView setImage:[licenseImages objectAtIndex:0]];
+			break;
+		default:
+			break;
+		}
 
 	[flickrPhotoTitle setStringValue:[NSString stringWithFormat:@"%@ (%@)", flickrPhoto.title, flickrPhoto.ID]];
 	[flickrTagsView reloadData];
@@ -179,6 +210,38 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	if(activeRequest == infoRequest)
 		{
 		[self setFlickrPhoto:[FlickrPhoto photoWithAPIResponse:response error:nil]];
+		
+		NSArray* licenseImages = [[FlickrKitResourceManager sharedManager] imagesForLicense:flickrPhoto.license];
+		
+		switch([licenseImages count])
+			{
+			case 1:
+				[secondLicenseView setImage:nil];
+				[thirdLicenseView setImage:nil];
+				[fourthLicenseView setImage:nil];
+				[firstLicenseView setImage:[licenseImages objectAtIndex:0]];
+				break;
+			case 2:
+				[thirdLicenseView setImage:nil];
+				[fourthLicenseView setImage:nil];
+				[firstLicenseView setImage:[licenseImages objectAtIndex:1]];
+				[secondLicenseView setImage:[licenseImages objectAtIndex:0]];
+				break;
+			case 3:
+				[fourthLicenseView setImage:nil];
+				[firstLicenseView setImage:[licenseImages objectAtIndex:2]];
+				[secondLicenseView setImage:[licenseImages objectAtIndex:1]];
+				[thirdLicenseView setImage:[licenseImages objectAtIndex:0]];
+				break;
+			case 4:
+				[firstLicenseView setImage:[licenseImages objectAtIndex:3]];
+				[secondLicenseView setImage:[licenseImages objectAtIndex:2]];
+				[thirdLicenseView setImage:[licenseImages objectAtIndex:1]];
+				[fourthLicenseView setImage:[licenseImages objectAtIndex:0]];
+				break;
+			default:
+				break;
+			}
 		
 		[flickrTagsView reloadData];
 		[fetchedData setLength:0];

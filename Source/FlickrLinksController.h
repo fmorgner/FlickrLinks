@@ -23,6 +23,11 @@
 	IBOutlet NSTableView* flickrGalleriesView;
 	IBOutlet NSTableView* flickrCommentsView;
 	
+	IBOutlet NSImageView *firstLicenseView;
+	IBOutlet NSImageView *secondLicenseView;
+	IBOutlet NSImageView *thirdLicenseView;
+	IBOutlet NSImageView *fourthLicenseView;
+
 	IBOutlet NSButton* backButton;
 	IBOutlet NSButton* forwardButton;
 
