@@ -16,4 +16,9 @@
 	{
 	}
 
+- (NSString*)apiKey
+	{
+	return apiKey;
+	}
+
 @end

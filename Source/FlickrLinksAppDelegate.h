@@ -7,11 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "apiKey.h"
 
 @interface FlickrLinksAppDelegate : NSObject <NSApplicationDelegate> {
 @private
 	NSWindow *window;
 }
+
+- (NSString*)apiKey;
 
 @property (assign) IBOutlet NSWindow *window;
 
