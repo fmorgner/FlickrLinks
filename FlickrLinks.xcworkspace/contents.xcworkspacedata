@@ -5,9 +5,6 @@
       location = "container:FlickrLinks.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../OAuthKit/OAuthKit.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:../FlickrKit/FlickrKit.xcodeproj">
    </FileRef>
 </Workspace>
