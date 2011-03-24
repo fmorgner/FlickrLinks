@@ -15,9 +15,7 @@
 		BB031FE0130BD77800350873 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB031FDE130BD77800350873 /* MainMenu.xib */; };
 		BB031FE8130BDB2B00350873 /* FlickrLinksController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB031FE7130BDB2B00350873 /* FlickrLinksController.m */; };
 		BB121F311323F61E007D2DAA /* notfound.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB121F301323F61E007D2DAA /* notfound.jpg */; };
-		C799093E13325A970000B732 /* OAuthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C769259E132FF248005F6AC3 /* OAuthKit.framework */; };
 		C799093F13325A970000B732 /* FlickrKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
-		C799094013325AA10000B732 /* OAuthKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C769259E132FF248005F6AC3 /* OAuthKit.framework */; };
 		C799094113325AA10000B732 /* FlickrKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +26,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C799094013325AA10000B732 /* OAuthKit.framework in CopyFiles */,
 				C799094113325AA10000B732 /* FlickrKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,7 +50,6 @@
 		BB121F301323F61E007D2DAA /* notfound.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = notfound.jpg; sourceTree = "<group>"; };
 		BB31BA6B130FF2BE009A9026 /* apiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = apiKey.h; sourceTree = "<group>"; };
 		C769259C132FF244005F6AC3 /* FlickrKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C769259E132FF248005F6AC3 /* OAuthKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OAuthKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +58,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB031FCA130BD77800350873 /* Cocoa.framework in Frameworks */,
-				C799093E13325A970000B732 /* OAuthKit.framework in Frameworks */,
 				C799093F13325A970000B732 /* FlickrKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,7 +94,6 @@
 		BB031FCB130BD77800350873 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C769259E132FF248005F6AC3 /* OAuthKit.framework */,
 				C769259C132FF244005F6AC3 /* FlickrKit.framework */,
 				BB031FCC130BD77800350873 /* AppKit.framework */,
 				BB031FCE130BD77800350873 /* Foundation.framework */,
