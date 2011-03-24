@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <FlickrKit/FlickrKit.h>
-#import "apiKey.h"
+#import "FlickrLinksAppDelegate.h"
 
 @interface FlickrLinksController : NSObject <NSTableViewDataSource,NSTextFieldDelegate>
 	{
