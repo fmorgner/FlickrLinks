@@ -53,6 +53,7 @@
 - (IBAction) fetch:(id)sender;
 - (IBAction) goBack:(id)sender;
 - (IBAction) goForward:(id)sender;
+- (IBAction) openPeopleList:(id)sender;
 - (void)updateUI;
 
 
