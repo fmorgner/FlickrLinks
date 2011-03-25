@@ -340,7 +340,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 				photoImageURL = [NSURL URLWithString:[[element attributeForName:@"source"] stringValue]];
 				}
 			}
-		photoRequest = [[NSURLRequest alloc] initWithURL:photoImageURL];
+		photoRequest = [NSURLRequest requestWithURL:photoImageURL];
 		[flickrPhotoLoadingIndicator incrementBy:8.3];
 		[fetchedData setLength:0];
 		activeRequest = photoRequest;
