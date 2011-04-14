@@ -3217,11 +3217,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">openPeopleList:</string>
+						<string key="label">togglePeopleDrawer:</string>
 						<reference key="source" ref="2898438"/>
 						<reference key="destination" ref="993104347"/>
 					</object>
-					<int key="connectionID">717</int>
+					<int key="connectionID">718</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4976,7 +4976,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">717</int>
+			<int key="maxID">718</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
