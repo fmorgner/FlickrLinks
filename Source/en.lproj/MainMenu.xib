@@ -1271,7 +1271,7 @@
 								</object>
 								<object class="NSMenuItem" id="993104347">
 									<reference key="NSMenu" ref="835318025"/>
-									<string key="NSTitle">Show People List</string>
+									<string key="NSTitle">Toggle People List</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
@@ -2293,6 +2293,7 @@
 							<string key="NSFrame">{{164, 20}, {40, 40}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="941411363">
