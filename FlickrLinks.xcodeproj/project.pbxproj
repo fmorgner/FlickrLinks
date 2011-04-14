@@ -11,7 +11,7 @@
 		BB031FD4130BD77800350873 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB031FD2130BD77800350873 /* InfoPlist.strings */; };
 		BB031FD7130BD77800350873 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB031FD6130BD77800350873 /* main.m */; };
 		BB031FDA130BD77800350873 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BB031FD8130BD77800350873 /* Credits.rtf */; };
-		BB031FDD130BD77800350873 /* FlickrLinksAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB031FDC130BD77800350873 /* FlickrLinksAppDelegate.m */; };
+		BB031FDD130BD77800350873 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB031FDC130BD77800350873 /* AppDelegate.m */; };
 		BB031FE0130BD77800350873 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB031FDE130BD77800350873 /* MainMenu.xib */; };
 		BB031FE8130BDB2B00350873 /* FlickrLinksController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB031FE7130BDB2B00350873 /* FlickrLinksController.m */; };
 		BB121F311323F61E007D2DAA /* notfound.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB121F301323F61E007D2DAA /* notfound.jpg */; };
@@ -45,8 +45,8 @@
 		BB031FD5130BD77800350873 /* FlickrLinks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlickrLinks-Prefix.pch"; sourceTree = "<group>"; };
 		BB031FD6130BD77800350873 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BB031FD9130BD77800350873 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		BB031FDB130BD77800350873 /* FlickrLinksAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrLinksAppDelegate.h; sourceTree = "<group>"; };
-		BB031FDC130BD77800350873 /* FlickrLinksAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlickrLinksAppDelegate.m; sourceTree = "<group>"; };
+		BB031FDB130BD77800350873 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		BB031FDC130BD77800350873 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BB031FDF130BD77800350873 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BB031FE6130BDB2B00350873 /* FlickrLinksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlickrLinksController.h; path = Source/FlickrLinksController.h; sourceTree = SOURCE_ROOT; };
 		BB031FE7130BDB2B00350873 /* FlickrLinksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlickrLinksController.m; path = Source/FlickrLinksController.m; sourceTree = SOURCE_ROOT; };
@@ -116,8 +116,8 @@
 				BB031FE7130BDB2B00350873 /* FlickrLinksController.m */,
 				C7DF0BCD133C9DEF001BE05B /* PeopleWindowController.h */,
 				C7DF0BCE133C9DEF001BE05B /* PeopleWindowController.m */,
-				BB031FDB130BD77800350873 /* FlickrLinksAppDelegate.h */,
-				BB031FDC130BD77800350873 /* FlickrLinksAppDelegate.m */,
+				BB031FDB130BD77800350873 /* AppDelegate.h */,
+				BB031FDC130BD77800350873 /* AppDelegate.m */,
 				BBFB911B13573FE70066E6E6 /* PreferencesController.h */,
 				BBFB911C13573FE70066E6E6 /* PreferencesController.m */,
 				BB031FDE130BD77800350873 /* MainMenu.xib */,
@@ -208,7 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB031FD7130BD77800350873 /* main.m in Sources */,
-				BB031FDD130BD77800350873 /* FlickrLinksAppDelegate.m in Sources */,
+				BB031FDD130BD77800350873 /* AppDelegate.m in Sources */,
 				BB031FE8130BDB2B00350873 /* FlickrLinksController.m in Sources */,
 				C7DF0BCF133C9DEF001BE05B /* PeopleWindowController.m in Sources */,
 				BBFB911D13573FE70066E6E6 /* PreferencesController.m in Sources */,
