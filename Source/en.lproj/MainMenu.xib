@@ -2263,7 +2263,7 @@
 				<string key="NSClassName">NSFontManager</string>
 			</object>
 			<object class="NSCustomObject" id="2898438">
-				<string key="NSClassName">FlickrLinksController</string>
+				<string key="NSClassName">AppController</string>
 			</object>
 			<object class="NSUserDefaultsController" id="412408641">
 				<bool key="NSSharedInstance">YES</bool>
