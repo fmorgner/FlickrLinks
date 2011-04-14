@@ -7,7 +7,7 @@
 //
 
 #import "FlickrLinksController.h"
-#import "FlickrPeopleListWindowController.h"
+#import "PeopleWindowController.h"
 
 #define MAX_VALUE 100.0
 
@@ -99,7 +99,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 
 - (IBAction) openPeopleList:(id)sender
 	{
-	FlickrPeopleListWindowController* peopleListController = [[FlickrPeopleListWindowController alloc] initWithWindowNibName:@"PeopleListWindow"];
+	PeopleWindowController* peopleListController = [[PeopleWindowController alloc] initWithWindowNibName:@"PeopleListWindow"];
 	[[NSApp mainWindow] addChildWindow:[peopleListController window] ordered:NSWindowAbove];
 	}
 
