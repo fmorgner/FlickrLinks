@@ -102,7 +102,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	{
 	if(!peopleDrawer)
 		{
-		peopleDrawer = [[NSDrawer alloc] initWithContentSize:NSMakeSize(300.0, 550.0) preferredEdge:NSMaxXEdge];
+		peopleDrawer = [[NSDrawer alloc] initWithContentSize:NSMakeSize(200.0, 550.0) preferredEdge:NSMaxXEdge];
 		PeopleViewController* viewController = [[PeopleViewController alloc] initWithNibName:@"PeopleListView" bundle:[NSBundle mainBundle]];
 		[peopleDrawer setContentView:viewController.view];
 		[peopleDrawer setParentWindow:[NSApp mainWindow]];

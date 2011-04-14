@@ -91,7 +91,7 @@
 											<bool key="EncodedWithXMLCoder">YES</bool>
 											<object class="NSTableColumn" id="1069581547">
 												<string key="NSIdentifier">id</string>
-												<double key="NSWidth">101</double>
+												<double key="NSWidth">129</double>
 												<double key="NSMinWidth">40</double>
 												<double key="NSMaxWidth">1000</double>
 												<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -150,7 +150,7 @@
 											</object>
 											<object class="NSTableColumn" id="617235291">
 												<string key="NSIdentifier">fullname</string>
-												<double key="NSWidth">191</double>
+												<double key="NSWidth">163</double>
 												<double key="NSMinWidth">40</double>
 												<double key="NSMaxWidth">1000</double>
 												<object class="NSTableHeaderCell" key="NSHeaderCell">
