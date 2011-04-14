@@ -7,7 +7,7 @@
 //
 
 #import "AppController.h"
-#import "PeopleWindowController.h"
+#import "PeopleViewController.h"
 
 #define MAX_VALUE 100.0
 
@@ -24,6 +24,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		photoHistory = [NSMutableArray new];
 		photoHistoryPosition = 0;
 		fetchedData = [[NSMutableData alloc] init];
+		isDrawerOpen = NO;
 		}
 	return self;
 	}
@@ -97,10 +98,26 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	[self updateUI];
 	}
 
-- (IBAction) openPeopleList:(id)sender
+- (IBAction) togglePeopleDrawer:(id)sender
 	{
-	PeopleWindowController* peopleListController = [[PeopleWindowController alloc] initWithWindowNibName:@"PeopleListWindow"];
-	[[NSApp mainWindow] addChildWindow:[peopleListController window] ordered:NSWindowAbove];
+	if(!peopleDrawer)
+		{
+		peopleDrawer = [[NSDrawer alloc] initWithContentSize:NSMakeSize(300.0, 550.0) preferredEdge:NSMaxXEdge];
+		PeopleViewController* viewController = [[PeopleViewController alloc] initWithNibName:@"PeopleListView" bundle:[NSBundle mainBundle]];
+		[peopleDrawer setContentView:viewController.view];
+		[peopleDrawer setParentWindow:[NSApp mainWindow]];
+		}
+		
+	if(!isDrawerOpen)
+		{
+		[peopleDrawer open];
+		isDrawerOpen = YES;
+		}
+	else
+		{
+		[peopleDrawer close];
+		isDrawerOpen = NO;
+		}
 	}
 
 - (IBAction) fetch:(id)sender

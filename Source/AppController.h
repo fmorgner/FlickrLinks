@@ -31,6 +31,8 @@
 	IBOutlet NSButton* backButton;
 	IBOutlet NSButton* forwardButton;
 
+	NSDrawer* peopleDrawer;
+	
 	NSURLRequest* infoRequest;
 	NSURLRequest* contextsRequest;
 	NSURLRequest* commentsRequest;
@@ -48,12 +50,13 @@
 	NSInteger photoHistoryPosition;
 	
 	BOOL isFetching;
+	BOOL isDrawerOpen;
 	}
 
 - (IBAction) fetch:(id)sender;
 - (IBAction) goBack:(id)sender;
 - (IBAction) goForward:(id)sender;
-- (IBAction) openPeopleList:(id)sender;
+- (IBAction) togglePeopleDrawer:(id)sender;
 - (void)updateUI;
 
 
