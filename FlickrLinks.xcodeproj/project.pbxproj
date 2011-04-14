@@ -16,6 +16,7 @@
 		BB031FE8130BDB2B00350873 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB031FE7130BDB2B00350873 /* AppController.m */; };
 		BB121F311323F61E007D2DAA /* notfound.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB121F301323F61E007D2DAA /* notfound.jpg */; };
 		BBFB911D13573FE70066E6E6 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFB911C13573FE70066E6E6 /* PreferencesController.m */; };
+		BBFB9120135741570066E6E6 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBFB911F135741570066E6E6 /* Preferences.xib */; };
 		C799093F13325A970000B732 /* FlickrKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
 		C799094113325AA10000B732 /* FlickrKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
 		C7DF0BCF133C9DEF001BE05B /* PeopleWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0BCE133C9DEF001BE05B /* PeopleWindowController.m */; };
@@ -48,14 +49,15 @@
 		BB031FDB130BD77800350873 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BB031FDC130BD77800350873 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BB031FDF130BD77800350873 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		BB031FE6130BDB2B00350873 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; name = AppController.h; path = Source/AppController.h; sourceTree = SOURCE_ROOT; };
+		BB031FE6130BDB2B00350873 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = Source/AppController.h; sourceTree = SOURCE_ROOT; };
 		BB031FE7130BDB2B00350873 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppController.m; path = Source/AppController.m; sourceTree = SOURCE_ROOT; };
 		BB121F301323F61E007D2DAA /* notfound.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = notfound.jpg; sourceTree = "<group>"; };
 		BB31BA6B130FF2BE009A9026 /* apiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = apiKey.h; sourceTree = "<group>"; };
 		BBFB911B13573FE70066E6E6 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
 		BBFB911C13573FE70066E6E6 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
+		BBFB911F135741570066E6E6 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		C769259C132FF244005F6AC3 /* FlickrKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7DF0BCD133C9DEF001BE05B /* PeopleWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PeopleWindowController.h; sourceTree = "<group>"; };
+		C7DF0BCD133C9DEF001BE05B /* PeopleWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleWindowController.h; sourceTree = "<group>"; };
 		C7DF0BCE133C9DEF001BE05B /* PeopleWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleWindowController.m; sourceTree = "<group>"; };
 		C7DF0BD1133C9E72001BE05B /* PeopleListWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeopleListWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 				BB031FDE130BD77800350873 /* MainMenu.xib */,
 				C7DF0BD1133C9E72001BE05B /* PeopleListWindow.xib */,
 				BB031FD0130BD77800350873 /* Supporting Files */,
+				BBFB911F135741570066E6E6 /* Preferences.xib */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				BB031FE0130BD77800350873 /* MainMenu.xib in Resources */,
 				BB121F311323F61E007D2DAA /* notfound.jpg in Resources */,
 				C7DF0BD2133C9E72001BE05B /* PeopleListWindow.xib in Resources */,
+				BBFB9120135741570066E6E6 /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
