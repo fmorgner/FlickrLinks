@@ -45,7 +45,7 @@
 		BB031FD5130BD77800350873 /* FlickrLinks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlickrLinks-Prefix.pch"; sourceTree = "<group>"; };
 		BB031FD6130BD77800350873 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BB031FD9130BD77800350873 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		BB031FDB130BD77800350873 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		BB031FDB130BD77800350873 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BB031FDC130BD77800350873 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BB031FDF130BD77800350873 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BB031FE6130BDB2B00350873 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; name = AppController.h; path = Source/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -114,10 +114,10 @@
 			children = (
 				BB031FE6130BDB2B00350873 /* AppController.h */,
 				BB031FE7130BDB2B00350873 /* AppController.m */,
-				C7DF0BCD133C9DEF001BE05B /* PeopleWindowController.h */,
-				C7DF0BCE133C9DEF001BE05B /* PeopleWindowController.m */,
 				BB031FDB130BD77800350873 /* AppDelegate.h */,
 				BB031FDC130BD77800350873 /* AppDelegate.m */,
+				C7DF0BCD133C9DEF001BE05B /* PeopleWindowController.h */,
+				C7DF0BCE133C9DEF001BE05B /* PeopleWindowController.m */,
 				BBFB911B13573FE70066E6E6 /* PreferencesController.h */,
 				BBFB911C13573FE70066E6E6 /* PreferencesController.m */,
 				BB031FDE130BD77800350873 /* MainMenu.xib */,
