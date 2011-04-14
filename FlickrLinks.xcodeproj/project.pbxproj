@@ -15,6 +15,7 @@
 		BB031FE0130BD77800350873 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB031FDE130BD77800350873 /* MainMenu.xib */; };
 		BB031FE8130BDB2B00350873 /* FlickrLinksController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB031FE7130BDB2B00350873 /* FlickrLinksController.m */; };
 		BB121F311323F61E007D2DAA /* notfound.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB121F301323F61E007D2DAA /* notfound.jpg */; };
+		BBFB911D13573FE70066E6E6 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFB911C13573FE70066E6E6 /* PreferencesController.m */; };
 		C799093F13325A970000B732 /* FlickrKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
 		C799094113325AA10000B732 /* FlickrKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
 		C7DF0BCF133C9DEF001BE05B /* FlickrPeopleListWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0BCE133C9DEF001BE05B /* FlickrPeopleListWindowController.m */; };
@@ -51,6 +52,8 @@
 		BB031FE7130BDB2B00350873 /* FlickrLinksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlickrLinksController.m; path = Source/FlickrLinksController.m; sourceTree = SOURCE_ROOT; };
 		BB121F301323F61E007D2DAA /* notfound.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = notfound.jpg; sourceTree = "<group>"; };
 		BB31BA6B130FF2BE009A9026 /* apiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = apiKey.h; sourceTree = "<group>"; };
+		BBFB911B13573FE70066E6E6 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
+		BBFB911C13573FE70066E6E6 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
 		C769259C132FF244005F6AC3 /* FlickrKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DF0BCD133C9DEF001BE05B /* FlickrPeopleListWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPeopleListWindowController.h; sourceTree = "<group>"; };
 		C7DF0BCE133C9DEF001BE05B /* FlickrPeopleListWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPeopleListWindowController.m; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 				C7DF0BCE133C9DEF001BE05B /* FlickrPeopleListWindowController.m */,
 				BB031FDB130BD77800350873 /* FlickrLinksAppDelegate.h */,
 				BB031FDC130BD77800350873 /* FlickrLinksAppDelegate.m */,
+				BBFB911B13573FE70066E6E6 /* PreferencesController.h */,
+				BBFB911C13573FE70066E6E6 /* PreferencesController.m */,
 				BB031FDE130BD77800350873 /* MainMenu.xib */,
 				C7DF0BD1133C9E72001BE05B /* PeopleListWindow.xib */,
 				BB031FD0130BD77800350873 /* Supporting Files */,
@@ -206,6 +211,7 @@
 				BB031FDD130BD77800350873 /* FlickrLinksAppDelegate.m in Sources */,
 				BB031FE8130BDB2B00350873 /* FlickrLinksController.m in Sources */,
 				C7DF0BCF133C9DEF001BE05B /* FlickrPeopleListWindowController.m in Sources */,
+				BBFB911D13573FE70066E6E6 /* PreferencesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
