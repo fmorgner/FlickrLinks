@@ -17,8 +17,10 @@
 		BB121F311323F61E007D2DAA /* notfound.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB121F301323F61E007D2DAA /* notfound.jpg */; };
 		BBFB911D13573FE70066E6E6 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFB911C13573FE70066E6E6 /* PreferencesController.m */; };
 		BBFB9120135741570066E6E6 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBFB911F135741570066E6E6 /* Preferences.xib */; };
+		C70D045913598094009A53B7 /* ExifView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C70D045813598094009A53B7 /* ExifView.xib */; };
 		C799093F13325A970000B732 /* FlickrKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
 		C799094113325AA10000B732 /* FlickrKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
+		C7D25BF0135DDD03003FF694 /* ExifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D25BEE135DDD03003FF694 /* ExifViewController.m */; };
 		C7DF0BCF133C9DEF001BE05B /* PeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0BCE133C9DEF001BE05B /* PeopleViewController.m */; };
 		C7DF0BD2133C9E72001BE05B /* PeopleListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7DF0BD1133C9E72001BE05B /* PeopleListView.xib */; };
 /* End PBXBuildFile section */
@@ -56,7 +58,10 @@
 		BBFB911B13573FE70066E6E6 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
 		BBFB911C13573FE70066E6E6 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
 		BBFB911F135741570066E6E6 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		C70D045813598094009A53B7 /* ExifView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExifView.xib; sourceTree = "<group>"; };
 		C769259C132FF244005F6AC3 /* FlickrKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7D25BED135DDD03003FF694 /* ExifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExifViewController.h; sourceTree = "<group>"; };
+		C7D25BEE135DDD03003FF694 /* ExifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExifViewController.m; sourceTree = "<group>"; };
 		C7DF0BCD133C9DEF001BE05B /* PeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleViewController.h; sourceTree = "<group>"; };
 		C7DF0BCE133C9DEF001BE05B /* PeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleViewController.m; sourceTree = "<group>"; };
 		C7DF0BD1133C9E72001BE05B /* PeopleListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeopleListView.xib; sourceTree = "<group>"; };
@@ -122,9 +127,12 @@
 				C7DF0BCE133C9DEF001BE05B /* PeopleViewController.m */,
 				BBFB911B13573FE70066E6E6 /* PreferencesController.h */,
 				BBFB911C13573FE70066E6E6 /* PreferencesController.m */,
+				C7D25BED135DDD03003FF694 /* ExifViewController.h */,
+				C7D25BEE135DDD03003FF694 /* ExifViewController.m */,
 				BB031FDE130BD77800350873 /* MainMenu.xib */,
 				C7DF0BD1133C9E72001BE05B /* PeopleListView.xib */,
 				BBFB911F135741570066E6E6 /* Preferences.xib */,
+				C70D045813598094009A53B7 /* ExifView.xib */,
 				BB031FD0130BD77800350873 /* Supporting Files */,
 			);
 			path = Source;
@@ -201,6 +209,7 @@
 				BB121F311323F61E007D2DAA /* notfound.jpg in Resources */,
 				C7DF0BD2133C9E72001BE05B /* PeopleListView.xib in Resources */,
 				BBFB9120135741570066E6E6 /* Preferences.xib in Resources */,
+				C70D045913598094009A53B7 /* ExifView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +225,7 @@
 				BB031FE8130BDB2B00350873 /* AppController.m in Sources */,
 				C7DF0BCF133C9DEF001BE05B /* PeopleViewController.m in Sources */,
 				BBFB911D13573FE70066E6E6 /* PreferencesController.m in Sources */,
+				C7D25BF0135DDD03003FF694 /* ExifViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
