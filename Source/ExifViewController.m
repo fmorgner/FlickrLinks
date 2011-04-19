@@ -25,7 +25,7 @@
 - (void)awakeFromNib
 	{
 	NSArrayController* exifArrayController = [[NSArrayController alloc] init];
-	[exifArrayController bind:@"contentArray" toObject:[NSApp delegate] withKeyPath:@"currentPhoto.exifElements" options:nil];
+	[exifArrayController bind:@"contentArray" toObject:[NSApp delegate] withKeyPath:@"currentPhoto.exifTags" options:nil];
 	
 	[keyColumn bind:@"value" toObject:exifArrayController withKeyPath:@"arrangedObjects.label" options:nil];
 	[valueColumn bind:@"value" toObject:exifArrayController withKeyPath:@"arrangedObjects.value" options:nil];
