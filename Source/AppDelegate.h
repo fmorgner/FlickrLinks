@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <FlickrKit/FlickrKit.h>
 #import "apiKey.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
@@ -17,5 +18,6 @@
 - (NSString*)apiKey;
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) FlickrPhoto* currentPhoto;
 
 @end

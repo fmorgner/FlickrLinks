@@ -11,6 +11,7 @@
 @implementation AppDelegate
 
 @synthesize window;
+@synthesize currentPhoto;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 	{
