@@ -38,11 +38,39 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	[forwardButton setEnabled:NO];
 	[[flickrPhotoID window] makeFirstResponder:flickrPhotoID];
 	
+	//---- Bindings
+	
+	// This is the object controller for the flickrPhoto ivar
 	NSObjectController* photoController = [NSObjectController new];
 	[photoController bind:@"content" toObject:self withKeyPath:@"flickrPhoto" options:nil];
+
+	// Here we're binding the value of only column of the tags tableview to the name property of each
+	// of the tags of the current photo.
+	NSArrayController* tagsController = [NSArrayController new];
+	[tagsController bind:@"contentArray" toObject:photoController withKeyPath:@"selection.tags" options:nil];
+	[[[flickrTagsView tableColumns] lastObject] bind:@"value" toObject:tagsController withKeyPath:@"arrangedObjects.name" options:nil];
+	[tagsController release];
+
+	// Here we're binding the value of only column of the sets tableview to the description property of each
+	// of the sets of the current photo.
+	NSArrayController* setsController = [NSArrayController new];
+	[setsController bind:@"contentArray" toObject:photoController withKeyPath:@"selection.sets" options:nil];
+	[[[flickrSetsView tableColumns] lastObject] bind:@"value" toObject:setsController withKeyPath:@"arrangedObjects.description" options:nil];
+	[setsController release];
 	
-	[flickrPhotoView bind:@"value" toObject:photoController withKeyPath:@"selection.image" options:nil];
-	[flickrPhotoTitle bind:@"value" toObject:photoController withKeyPath:@"selection.title" options:nil];
+	// Here we're binding the value of only column of the pools tableview to the description property of each
+	// of the pools of the current photo.
+	NSArrayController* poolsController = [NSArrayController new];
+	[poolsController bind:@"contentArray" toObject:photoController withKeyPath:@"selection.pools" options:nil];
+	[[[flickrSetsView tableColumns] lastObject] bind:@"value" toObject:poolsController withKeyPath:@"arrangedObjects.description" options:nil];
+	[poolsController release];
+	
+	// Here we're binding the value of only column of the galleries tableview to the description property of each
+	// of the galleries of the current photo.
+	NSArrayController* galleriesController = [NSArrayController new];
+	[galleriesController bind:@"contentArray" toObject:photoController withKeyPath:@"selection.galleries" options:nil];
+	[[[flickrSetsView tableColumns] lastObject] bind:@"value" toObject:galleriesController withKeyPath:@"arrangedObjects.description" options:nil];
+	[galleriesController release];
 	
 	}
 
@@ -185,64 +213,6 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	[flickrPhotoLoadingIndicator startAnimation:self];
 	}
 
-#pragma mark - NSTableViewDataSource methods
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
-	{
-	NSInteger rowCount = 0;
-	
-	if([aTableView isEqualTo:flickrTagsView])
-		{
-		rowCount = [flickrPhoto.tags count];
-		}
-	else if([aTableView isEqualTo:flickrSetsView])
-		{
-		rowCount = [flickrPhoto.sets count];
-		}
-	else if([aTableView isEqualTo:flickrPoolsView])
-		{
-		rowCount = [flickrPhoto.pools count];
-		}
-	else if([aTableView isEqualTo:flickrGalleriesView])
-		{
-		rowCount = [flickrPhoto.galleries count];
-		}
-	else if([aTableView isEqualTo:flickrCommentsView])
-		{
-		rowCount = [flickrPhoto.comments count];
-		}
-	
-	return rowCount;
-	}
-
-- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
-	{
-	NSString* objectValue = nil;
-	
-	if([aTableView isEqualTo:flickrTagsView])
-		{
-		objectValue = [[flickrPhoto.tags objectAtIndex:rowIndex] name];
-		}
-	else if([aTableView isEqualTo:flickrSetsView])
-		{
-		objectValue = [flickrPhoto.sets objectAtIndex:rowIndex];
-		}
-	else if([aTableView isEqualTo:flickrPoolsView])
-		{
-		objectValue = [flickrPhoto.pools objectAtIndex:rowIndex];
-		}
-	else if([aTableView isEqualTo:flickrGalleriesView])
-		{
-		objectValue = [flickrPhoto.galleries objectAtIndex:rowIndex];
-		}
-	else if([aTableView isEqualTo:flickrCommentsView])
-		{
-		objectValue = [flickrPhoto.comments objectAtIndex:rowIndex];
-		}
-	
-	return objectValue;	
-	}
-
 #pragma mark - NSURLConnection methods
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
@@ -303,7 +273,6 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 				break;
 			}
 		
-		[flickrTagsView reloadData];
 		[fetchedData setLength:0];
 		[flickrPhotoLoadingIndicator incrementBy:16.6];
 		activeRequest = contextsRequest;
@@ -329,8 +298,6 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		[flickrPhoto setSets:setArray];
 		[xmlDocument release];
 		[fetchedData setLength:0];
-		[flickrSetsView reloadData];
-		[flickrPoolsView reloadData];
 		[flickrPhotoLoadingIndicator incrementBy:16.6];
 		activeRequest = commentsRequest;
 		[NSURLConnection connectionWithRequest:commentsRequest delegate:self];
@@ -402,23 +369,9 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		photoRequest = [NSURLRequest requestWithURL:photoImageURL];
 		[flickrPhotoLoadingIndicator incrementBy:8.3];
 		[fetchedData setLength:0];
-//		activeRequest = photoRequest;
-//		[NSURLConnection connectionWithRequest:photoRequest delegate:self];
 		[flickrPhoto fetchImageOfSize:FlickrImageSizeMedium640];
 		[xmlDocument release];
 		}
-	else if(activeRequest == photoRequest)
-		{
-		[flickrPhoto setImage:[[[NSImage alloc] initWithData:fetchedData ] autorelease]];
-		[flickrPhotoView setImage:flickrPhoto.image];
-		[flickrPhotoLoadingIndicator setDoubleValue:[flickrPhotoLoadingIndicator maxValue]];
-		[fetchedData setLength:0];
-		[photoHistory addObject:flickrPhoto];
-		photoHistoryPosition = [photoHistory count] - 1;
-		([photoHistory count] && photoHistoryPosition) ? [backButton setEnabled:YES] : [backButton setEnabled:NO];	
-		([photoHistory count] && photoHistoryPosition + 1 < [photoHistory count]) ? [forwardButton setEnabled:YES] : [forwardButton setEnabled:NO];	
-		isFetching = NO;
-	  }
 	[response release];
   }
 
