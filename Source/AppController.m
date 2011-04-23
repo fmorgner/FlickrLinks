@@ -37,6 +37,13 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	[backButton setEnabled:NO];
 	[forwardButton setEnabled:NO];
 	[[flickrPhotoID window] makeFirstResponder:flickrPhotoID];
+	
+	NSObjectController* photoController = [NSObjectController new];
+	[photoController bind:@"content" toObject:self withKeyPath:@"flickrPhoto" options:nil];
+	
+	[flickrPhotoView bind:@"value" toObject:photoController withKeyPath:@"selection.image" options:nil];
+	[flickrPhotoTitle bind:@"value" toObject:photoController withKeyPath:@"selection.title" options:nil];
+	
 	}
 
 - (void)updateUI
@@ -99,6 +106,8 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	flickrPhoto = [photoHistory objectAtIndex:photoHistoryPosition];
 	[self updateUI];
 	}
+
+#pragma mark - Drawer Toggeling
 
 - (IBAction) togglePeopleDrawer:(id)sender
 	{
@@ -260,7 +269,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	if(activeRequest == infoRequest)
 		{
 		[self setFlickrPhoto:[FlickrPhoto photoWithAPIResponse:response error:nil]];
-		[[NSApp delegate] setCurrentPhoto:flickrPhoto];
+		[(NSObject*)[NSApp delegate] setValue:flickrPhoto forKey:@"currentPhoto"];
 		
 		NSArray* licenseImages = [[FlickrKitResourceManager sharedManager] imagesForLicense:flickrPhoto.license];
 		
@@ -296,7 +305,6 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		
 		[flickrTagsView reloadData];
 		[fetchedData setLength:0];
-		[flickrPhotoTitle setStringValue:[NSString stringWithFormat:@"%@ (%@)", flickrPhoto.title, flickrPhoto.ID]];
 		[flickrPhotoLoadingIndicator incrementBy:16.6];
 		activeRequest = contextsRequest;
 		[NSURLConnection connectionWithRequest:contextsRequest delegate:self];
@@ -394,8 +402,9 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		photoRequest = [NSURLRequest requestWithURL:photoImageURL];
 		[flickrPhotoLoadingIndicator incrementBy:8.3];
 		[fetchedData setLength:0];
-		activeRequest = photoRequest;
-		[NSURLConnection connectionWithRequest:photoRequest delegate:self];
+//		activeRequest = photoRequest;
+//		[NSURLConnection connectionWithRequest:photoRequest delegate:self];
+		[flickrPhoto fetchImageOfSize:FlickrImageSizeMedium640];
 		[xmlDocument release];
 		}
 	else if(activeRequest == photoRequest)

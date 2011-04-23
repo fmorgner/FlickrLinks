@@ -10,7 +10,11 @@
 #import <FlickrKit/FlickrKit.h>
 #import "AppDelegate.h"
 
+#ifdef __MAC_10_7
+@interface AppController : NSObject <NSTableViewDataSource,NSTextFieldDelegate,NSURLConnectionDelegate>
+#else
 @interface AppController : NSObject <NSTableViewDataSource,NSTextFieldDelegate>
+#endif
 	{
 	IBOutlet NSImageView* flickrPhotoView;
 	IBOutlet NSTextField* flickrPhotoID;
