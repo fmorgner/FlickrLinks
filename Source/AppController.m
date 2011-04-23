@@ -8,6 +8,7 @@
 
 #import "AppController.h"
 #import "PeopleViewController.h"
+#import "ExifViewController.h"
 
 #define MAX_VALUE 100.0
 
@@ -24,7 +25,8 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		photoHistory = [NSMutableArray new];
 		photoHistoryPosition = 0;
 		fetchedData = [[NSMutableData alloc] init];
-		isDrawerOpen = NO;
+		isPeopleDrawerOpen = NO;
+		isEXIFDrawerOpen = NO;
 		}
 	return self;
 	}
@@ -108,17 +110,42 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		[peopleDrawer setParentWindow:[NSApp mainWindow]];
 		}
 		
-	if(!isDrawerOpen)
+	if(!isPeopleDrawerOpen)
 		{
 		[peopleDrawer open];
-		isDrawerOpen = YES;
+		isPeopleDrawerOpen = YES;
 		}
 	else
 		{
 		[peopleDrawer close];
-		isDrawerOpen = NO;
+		isPeopleDrawerOpen = NO;
 		}
 	}
+
+- (IBAction) toggleEXIFDrawer:(id)sender
+	{
+	[flickrPhoto fetchEXIFInformation];
+		
+	if(!exifDrawer)
+		{
+		exifDrawer = [[NSDrawer alloc] initWithContentSize:NSMakeSize(500, 150) preferredEdge:NSMinYEdge];
+		ExifViewController* viewController = [[ExifViewController alloc] initWithNibName:@"ExifView" bundle:[NSBundle mainBundle]];
+		[exifDrawer setContentView:viewController.view];
+		[exifDrawer setParentWindow:[NSApp mainWindow]];
+		}
+		
+	if(!isEXIFDrawerOpen)
+		{
+		[exifDrawer open];
+		isEXIFDrawerOpen = YES;
+		}
+	else
+		{
+		[exifDrawer close];
+		isEXIFDrawerOpen = NO;
+		}
+	}
+
 
 - (IBAction) fetch:(id)sender
 	{
@@ -233,6 +260,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	if(activeRequest == infoRequest)
 		{
 		[self setFlickrPhoto:[FlickrPhoto photoWithAPIResponse:response error:nil]];
+		[[NSApp delegate] setCurrentPhoto:flickrPhoto];
 		
 		NSArray* licenseImages = [[FlickrKitResourceManager sharedManager] imagesForLicense:flickrPhoto.license];
 		

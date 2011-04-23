@@ -32,6 +32,7 @@
 	IBOutlet NSButton* forwardButton;
 
 	NSDrawer* peopleDrawer;
+	NSDrawer* exifDrawer;
 	
 	NSURLRequest* infoRequest;
 	NSURLRequest* contextsRequest;
@@ -50,7 +51,8 @@
 	NSInteger photoHistoryPosition;
 	
 	BOOL isFetching;
-	BOOL isDrawerOpen;
+	BOOL isPeopleDrawerOpen;
+	BOOL isEXIFDrawerOpen;
 	}
 
 - (IBAction) fetch:(id)sender;
