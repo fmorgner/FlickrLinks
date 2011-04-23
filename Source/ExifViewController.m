@@ -27,10 +27,13 @@
 	NSArrayController* exifArrayController = [[NSArrayController alloc] init];
 	[exifArrayController bind:@"contentArray" toObject:[NSApp delegate] withKeyPath:@"currentPhoto.exifTags" options:nil];
 	
-	[keyColumn bind:@"value" toObject:exifArrayController withKeyPath:@"arrangedObjects.label" options:nil];
+	NSTableColumn* labelColumn = [exifTable tableColumnWithIdentifier:@"label"];
+	NSTableColumn* valueColumn = [exifTable tableColumnWithIdentifier:@"value"];
+	
+	[labelColumn bind:@"value" toObject:exifArrayController withKeyPath:@"arrangedObjects.label" options:nil];
 	[valueColumn bind:@"value" toObject:exifArrayController withKeyPath:@"arrangedObjects.value" options:nil];
 	
-	[exifArrayController release];
+//	[exifArrayController release];
 	}
 
 - (void)dealloc

@@ -12,8 +12,6 @@
 @interface ExifViewController : NSViewController
 	{
 	IBOutlet NSTableView* exifTable;
-	IBOutlet NSTableColumn* keyColumn;
-	IBOutlet NSTableColumn* valueColumn;
 	}
 
 @end
