@@ -13,6 +13,7 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
 @private
 	NSWindow *window;
+    FlickrPhoto* currentPhoto;
 }
 
 - (NSString*)apiKey;
