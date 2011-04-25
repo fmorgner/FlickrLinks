@@ -32,7 +32,7 @@
 	tableColumn = [tableView tableColumnWithIdentifier:@"id"];
 	[tableColumn bind:@"value" toObject:arrayController withKeyPath:@"arrangedObjects.ID" options:bindingOptions];	
 	tableColumn = [tableView tableColumnWithIdentifier:@"fullname"];
-	[tableColumn bind:@"value" toObject:arrayController withKeyPath:@"arrangedObjects.name" options:bindingOptions];	
+	[tableColumn bind:@"value" toObject:arrayController withKeyPath:@"arrangedObjects.username" options:bindingOptions];	
 	[arrayController release];
 	}
 
