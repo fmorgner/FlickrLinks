@@ -13,9 +13,11 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
 @private
 	NSWindow *window;
+	FlickrPhoto* currentPhoto;
 }
 
 - (NSString*)apiKey;
+- (NSString*)apiSecret;
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) FlickrPhoto* currentPhoto;

@@ -22,4 +22,9 @@
 	return apiKey;
 	}
 
+- (NSString*)apiSecret
+	{
+	return apiSecret;
+	}
+
 @end
