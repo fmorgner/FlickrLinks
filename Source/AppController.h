@@ -8,13 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <FlickrKit/FlickrKit.h>
-#import "AppDelegate.h"
 
-#ifdef __MAC_10_7
-@interface AppController : NSObject <NSTableViewDataSource,NSTextFieldDelegate,NSURLConnectionDelegate>
-#else
-@interface AppController : NSObject <NSTableViewDataSource,NSTextFieldDelegate>
-#endif
+@interface AppController : NSObject
 	{
 	IBOutlet NSImageView* flickrPhotoView;
 	IBOutlet NSTextField* flickrPhotoID;
@@ -63,7 +58,7 @@
 - (IBAction) goBack:(id)sender;
 - (IBAction) goForward:(id)sender;
 - (IBAction) togglePeopleDrawer:(id)sender;
-- (void)updateUI;
+- (IBAction) toggleEXIFDrawer:(id)sender;
 
 
 @property(nonatomic,retain) FlickrPhoto* flickrPhoto;
