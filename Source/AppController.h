@@ -21,11 +21,6 @@
 	IBOutlet NSTableView* flickrPoolsView;
 	IBOutlet NSTableView* flickrGalleriesView;
 	IBOutlet NSTableView* flickrCommentsView;
-	
-	IBOutlet NSImageView *firstLicenseView;
-	IBOutlet NSImageView *secondLicenseView;
-	IBOutlet NSImageView *thirdLicenseView;
-	IBOutlet NSImageView *fourthLicenseView;
 
 	IBOutlet NSButton* backButton;
 	IBOutlet NSButton* forwardButton;
@@ -33,18 +28,6 @@
 	NSDrawer* peopleDrawer;
 	NSDrawer* exifDrawer;
 	
-	NSURLRequest* infoRequest;
-	NSURLRequest* contextsRequest;
-	NSURLRequest* commentsRequest;
-	NSURLRequest* favoritesRequest;
-	NSURLRequest* galleriesRequest;
-	NSURLRequest* photoRequest;
-	NSURLRequest* activeRequest;
-	NSURLRequest* sizesRequest;
-
-	NSMutableData* fetchedData;
-	NSXMLDocument* xmlDocument;	
-
 	FlickrPhoto* flickrPhoto;
 	NSMutableArray* photoHistory;
 	NSInteger photoHistoryPosition;
