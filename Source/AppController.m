@@ -109,11 +109,8 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	
 	NSString* photoID = [flickrPhotoID stringValue];
 	self.flickrPhoto = [FlickrPhoto photoWithID:photoID];
-	[flickrPhoto fetchContexts];
-	[flickrPhoto fetchImageOfSize:FlickrImageSizeMedium];
-	[flickrPhoto fetchComments];
-	[flickrPhoto fetchFavorites];
-	[flickrPhoto fetchEXIFInformation];
+	[flickrPhoto fetchInformation:kFlickrPhotoInformationAll];
+	[flickrPhoto fetchImageOfSize:kFlickrImageSizeMedium];
 	}
 
 @end
