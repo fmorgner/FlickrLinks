@@ -33,7 +33,7 @@
 	[labelColumn bind:@"value" toObject:exifArrayController withKeyPath:@"arrangedObjects.label" options:nil];
 	[valueColumn bind:@"value" toObject:exifArrayController withKeyPath:@"arrangedObjects.value" options:nil];
 	
-//	[exifArrayController release];
+	[exifArrayController release];
 	}
 
 - (void)dealloc

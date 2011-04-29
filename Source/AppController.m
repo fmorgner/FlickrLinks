@@ -63,6 +63,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		PeopleViewController* viewController = [[PeopleViewController alloc] initWithNibName:@"PeopleListView" bundle:[NSBundle mainBundle]];
 		[peopleDrawer setContentView:viewController.view];
 		[peopleDrawer setParentWindow:[NSApp mainWindow]];
+		[viewController release];
 		}
 		
 	if(!isPeopleDrawerOpen)
@@ -87,6 +88,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		ExifViewController* viewController = [[ExifViewController alloc] initWithNibName:@"ExifView" bundle:[NSBundle mainBundle]];
 		[exifDrawer setContentView:viewController.view];
 		[exifDrawer setParentWindow:[NSApp mainWindow]];
+		[viewController release];
 		}
 		
 	if(!isEXIFDrawerOpen)
