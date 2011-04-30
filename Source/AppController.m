@@ -25,7 +25,6 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		{
 		photoHistory = [NSMutableArray new];
 		photoHistoryPosition = 0;
-		fetchedData = [[NSMutableData alloc] init];
 		isPeopleDrawerOpen = NO;
 		isEXIFDrawerOpen = NO;
 		}
