@@ -54,17 +54,15 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	if([(NSButton*)sender tag] == 1)
 		{
 		self.flickrPhoto = previousPhoto;
-		NSUInteger index = [photoHistory indexOfObject:flickrPhoto];
-		self.previousPhoto = (index) ? [photoHistory objectAtIndex:(index - 1)] : 0;
-		self.nextPhoto = (index < ([photoHistory count] - 1)) ? [photoHistory objectAtIndex:(index + 1 )] : nil;
 		}
 	else if([(NSButton*)sender tag] == 2)
 		{
 		self.flickrPhoto = nextPhoto;
-		NSUInteger index = [photoHistory indexOfObject:flickrPhoto];
-		self.previousPhoto = (index) ? [photoHistory objectAtIndex:(index - 1)] : 0;
-		self.nextPhoto = (index < ([photoHistory count] - 1)) ? [photoHistory objectAtIndex:(index + 1 )] : nil;
 		}
+
+	NSUInteger index = [photoHistory indexOfObject:flickrPhoto];
+	self.previousPhoto = (index) ? [photoHistory objectAtIndex:(index - 1)] : 0;
+	self.nextPhoto = (index < ([photoHistory count] - 1)) ? [photoHistory objectAtIndex:(index + 1 )] : nil;
 	}
 
 #pragma mark - Drawer Toggeling
