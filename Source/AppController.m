@@ -60,6 +60,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		self.flickrPhoto = nextPhoto;
 		}
 
+	[flickrPhotoID setStringValue:flickrPhoto.ID];
 	NSUInteger index = [photoHistory indexOfObject:flickrPhoto];
 	self.previousPhoto = (index) ? [photoHistory objectAtIndex:(index - 1)] : 0;
 	self.nextPhoto = (index < ([photoHistory count] - 1)) ? [photoHistory objectAtIndex:(index + 1 )] : nil;
