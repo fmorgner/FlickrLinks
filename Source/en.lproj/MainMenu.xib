@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">11A430e</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1545</string>
-		<string key="IBDocument.AppKitVersion">1117</string>
-		<string key="IBDocument.HIToolboxVersion">552.00</string>
+		<string key="IBDocument.SystemVersion">11A444d</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1556</string>
+		<string key="IBDocument.AppKitVersion">1119.1</string>
+		<string key="IBDocument.HIToolboxVersion">555.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">1545</string>
+			<string key="NS.object.0">1556</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSUserDefaultsController</string>
@@ -1439,7 +1439,6 @@
 									<reference key="NSSuperview" ref="20126553"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="469422602"/>
-									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<reference key="NSTarget" ref="20126553"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSPercent">0.98648648648648651</double>
@@ -1451,7 +1450,6 @@
 									<reference key="NSSuperview" ref="20126553"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="141944487"/>
-									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="20126553"/>
 									<string key="NSAction">_doScroller:</string>
@@ -1554,7 +1552,6 @@
 									<reference key="NSSuperview" ref="141944487"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="390892382"/>
-									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<reference key="NSTarget" ref="141944487"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSPercent">0.98648648648648651</double>
@@ -1566,7 +1563,6 @@
 									<reference key="NSSuperview" ref="141944487"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="427111321"/>
-									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="141944487"/>
 									<string key="NSAction">_doScroller:</string>
@@ -1670,7 +1666,6 @@
 									<reference key="NSSuperview" ref="537337925"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="616522541"/>
-									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<reference key="NSTarget" ref="537337925"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSPercent">0.98648648648648651</double>
@@ -1682,7 +1677,6 @@
 									<reference key="NSSuperview" ref="537337925"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="383121045"/>
-									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="537337925"/>
 									<string key="NSAction">_doScroller:</string>
@@ -1786,7 +1780,6 @@
 									<reference key="NSSuperview" ref="383121045"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="788850233"/>
-									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<reference key="NSTarget" ref="383121045"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSPercent">0.98648648648648651</double>
@@ -1798,7 +1791,6 @@
 									<reference key="NSSuperview" ref="383121045"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="183712471"/>
-									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="383121045"/>
 									<string key="NSAction">_doScroller:</string>
@@ -1902,7 +1894,6 @@
 									<reference key="NSSuperview" ref="486080341"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="310226940"/>
-									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<reference key="NSTarget" ref="486080341"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSPercent">0.99130434782608701</double>
@@ -1914,7 +1905,6 @@
 									<reference key="NSSuperview" ref="486080341"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="917573646"/>
-									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="486080341"/>
 									<string key="NSAction">_doScroller:</string>
@@ -2063,6 +2053,7 @@
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="748315021"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
+							<int key="NSTag">1</int>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="90189509">
 								<int key="NSCellFlags">67239424</int>
@@ -2086,6 +2077,7 @@
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
+							<int key="NSTag">2</int>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="269162319">
 								<int key="NSCellFlags">67239424</int>
@@ -2102,7 +2094,7 @@
 							</object>
 						</object>
 					</array>
-					<string key="NSFrame">{{7, 11}, {931, 480}}</string>
+					<string key="NSFrameSize">{931, 480}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="714002091"/>
@@ -2111,6 +2103,7 @@
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
+				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSCustomObject" id="976324537">
 				<string key="NSClassName">AppDelegate</string>
@@ -2894,22 +2887,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">goBack:</string>
-						<reference key="source" ref="2898438"/>
-						<reference key="destination" ref="157099257"/>
-					</object>
-					<int key="connectionID">684</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">goForward:</string>
-						<reference key="source" ref="2898438"/>
-						<reference key="destination" ref="748315021"/>
-					</object>
-					<int key="connectionID">685</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">fetch:</string>
 						<reference key="source" ref="2898438"/>
 						<reference key="destination" ref="917573646"/>
@@ -3147,6 +3124,62 @@
 						</object>
 					</object>
 					<int key="connectionID">773</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: self.previousPhoto</string>
+						<reference key="source" ref="157099257"/>
+						<reference key="destination" ref="2898438"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="157099257"/>
+							<reference key="NSDestination" ref="2898438"/>
+							<string key="NSLabel">enabled: self.previousPhoto</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">self.previousPhoto</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNotNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">781</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: self.nextPhoto</string>
+						<reference key="source" ref="748315021"/>
+						<reference key="destination" ref="2898438"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="748315021"/>
+							<reference key="NSDestination" ref="2898438"/>
+							<string key="NSLabel">enabled: self.nextPhoto</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">self.nextPhoto</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSIsNotNil</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">783</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">stepThroughHistory:</string>
+						<reference key="source" ref="2898438"/>
+						<reference key="destination" ref="157099257"/>
+					</object>
+					<int key="connectionID">787</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">stepThroughHistory:</string>
+						<reference key="source" ref="2898438"/>
+						<reference key="destination" ref="748315021"/>
+					</object>
+					<int key="connectionID">788</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4804,7 +4837,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">773</int>
+			<int key="maxID">788</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4813,30 +4846,15 @@
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="fetch:">id</string>
-						<string key="goBack:">id</string>
-						<string key="goForward:">id</string>
 						<string key="toggleEXIFDrawer:">id</string>
-						<string key="togglePeopleDrawer:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="fetch:">
 							<string key="name">fetch:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="goBack:">
-							<string key="name">goBack:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="goForward:">
-							<string key="name">goForward:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="toggleEXIFDrawer:">
 							<string key="name">toggleEXIFDrawer:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="togglePeopleDrawer:">
-							<string key="name">togglePeopleDrawer:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

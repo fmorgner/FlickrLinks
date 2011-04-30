@@ -29,6 +29,8 @@
 	NSDrawer* exifDrawer;
 	
 	FlickrPhoto* flickrPhoto;
+	FlickrPhoto* nextPhoto;
+	FlickrPhoto* previousPhoto;
 	NSMutableArray* photoHistory;
 	NSInteger photoHistoryPosition;
 	
@@ -37,12 +39,15 @@
 	BOOL isEXIFDrawerOpen;
 	}
 
-- (IBAction) fetch:(id)sender;
-- (IBAction) goBack:(id)sender;
-- (IBAction) goForward:(id)sender;
-- (IBAction) togglePeopleDrawer:(id)sender;
-- (IBAction) toggleEXIFDrawer:(id)sender;
+- (IBAction)fetch:(id)sender;
+- (IBAction)stepThroughHistory:(id)sender;
+- (IBAction)togglePeopleDrawer:(id)sender;
+- (IBAction)toggleEXIFDrawer:(id)sender;
 
-@property(nonatomic,retain) FlickrPhoto* flickrPhoto;
+- (void)addPhotoToHistory:(NSNotification*)aNotification;
+
+@property(retain) FlickrPhoto* flickrPhoto;	
+@property(assign) FlickrPhoto* nextPhoto;	
+@property(assign) FlickrPhoto* previousPhoto;
 
 @end

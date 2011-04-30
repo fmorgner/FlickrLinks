@@ -17,7 +17,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 
 @implementation AppController
 
-@synthesize flickrPhoto;
+@synthesize flickrPhoto, nextPhoto, previousPhoto;
 
 - (id)init
 	{
@@ -27,6 +27,9 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		photoHistoryPosition = 0;
 		isPeopleDrawerOpen = NO;
 		isEXIFDrawerOpen = NO;
+		previousPhoto = nil;
+		nextPhoto = nil;
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addPhotoToHistory:) name:FlickrPhotoDidFinishLoadingNotification object:nil];
 		}
 	return self;
 	}
@@ -41,22 +44,27 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 - (void)awakeFromNib
 	{
 	[flickrPhotoLoadingIndicator setMaxValue:MAX_VALUE];
-	[backButton setEnabled:NO];
-	[forwardButton setEnabled:NO];
 	[[flickrPhotoID window] makeFirstResponder:flickrPhotoID];
 	[(AppDelegate*)[NSApp delegate] bind:@"currentPhoto" toObject:self withKeyPath:@"flickrPhoto" options:nil];
 	}
+#pragma mark - History browsing
 
-- (IBAction) goBack:(id)sender
+- (IBAction)stepThroughHistory:(id)sender
 	{
-	photoHistoryPosition--;
-	flickrPhoto = [photoHistory objectAtIndex:photoHistoryPosition];
-	}
-	
-- (IBAction) goForward:(id)sender
-	{
-	photoHistoryPosition++;
-	flickrPhoto = [photoHistory objectAtIndex:photoHistoryPosition];
+	if([(NSButton*)sender tag] == 1)
+		{
+		self.flickrPhoto = previousPhoto;
+		NSUInteger index = [photoHistory indexOfObject:flickrPhoto];
+		self.previousPhoto = (index) ? [photoHistory objectAtIndex:(index - 1)] : 0;
+		self.nextPhoto = (index < ([photoHistory count] - 1)) ? [photoHistory objectAtIndex:(index + 1 )] : nil;
+		}
+	else if([(NSButton*)sender tag] == 2)
+		{
+		self.flickrPhoto = nextPhoto;
+		NSUInteger index = [photoHistory indexOfObject:flickrPhoto];
+		self.previousPhoto = (index) ? [photoHistory objectAtIndex:(index - 1)] : 0;
+		self.nextPhoto = (index < ([photoHistory count] - 1)) ? [photoHistory objectAtIndex:(index + 1 )] : nil;
+		}
 	}
 
 #pragma mark - Drawer Toggeling
@@ -86,8 +94,6 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 
 - (IBAction) toggleEXIFDrawer:(id)sender
 	{
-	[flickrPhoto fetchEXIFInformation];
-		
 	if(!exifDrawer)
 		{
 		exifDrawer = [[NSDrawer alloc] initWithContentSize:NSMakeSize(500, 150) preferredEdge:NSMinYEdge];
@@ -119,5 +125,14 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	[flickrPhoto fetchInformation:kFlickrPhotoInformationAll];
 	[flickrPhoto fetchImageOfSize:kFlickrImageSizeMedium];
 	}
+
+#pragma mark Notification Handling
+
+- (void)addPhotoToHistory:(NSNotification*)aNotification
+	{
+	[photoHistory addObject:[aNotification object]];
+	self.previousPhoto = ((NSInteger)[photoHistory count] - 2 < 0) ? nil : [photoHistory objectAtIndex:[photoHistory indexOfObject:[aNotification object]] - 1];
+	}
+
 
 @end
