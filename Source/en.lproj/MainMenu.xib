@@ -3111,22 +3111,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: arrangedObjects.description</string>
-						<reference key="source" ref="88582314"/>
-						<reference key="destination" ref="1073695170"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="88582314"/>
-							<reference key="NSDestination" ref="1073695170"/>
-							<string key="NSLabel">value: arrangedObjects.description</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">arrangedObjects.description</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">773</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
 						<string key="label">enabled: self.previousPhoto</string>
 						<reference key="source" ref="157099257"/>
 						<reference key="destination" ref="2898438"/>
@@ -3180,6 +3164,22 @@
 						<reference key="destination" ref="748315021"/>
 					</object>
 					<int key="connectionID">788</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.strippedText</string>
+						<reference key="source" ref="88582314"/>
+						<reference key="destination" ref="1073695170"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="88582314"/>
+							<reference key="NSDestination" ref="1073695170"/>
+							<string key="NSLabel">value: arrangedObjects.strippedText</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.strippedText</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">789</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4837,7 +4837,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">788</int>
+			<int key="maxID">789</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4846,15 +4846,25 @@
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="fetch:">id</string>
+						<string key="stepThroughHistory:">id</string>
 						<string key="toggleEXIFDrawer:">id</string>
+						<string key="togglePeopleDrawer:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="fetch:">
 							<string key="name">fetch:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="stepThroughHistory:">
+							<string key="name">stepThroughHistory:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="toggleEXIFDrawer:">
 							<string key="name">toggleEXIFDrawer:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="togglePeopleDrawer:">
+							<string key="name">togglePeopleDrawer:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
