@@ -31,6 +31,13 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	return self;
 	}
 
+- (void)dealloc
+	{
+	[photoHistory release];
+	[flickrPhoto release];
+	[super dealloc];
+	}
+
 - (void)awakeFromNib
 	{
 	[flickrPhotoLoadingIndicator setMaxValue:MAX_VALUE];
@@ -101,7 +108,6 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		isEXIFDrawerOpen = NO;
 		}
 	}
-
 
 - (IBAction) fetch:(id)sender
 	{

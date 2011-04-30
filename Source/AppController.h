@@ -43,7 +43,6 @@
 - (IBAction) togglePeopleDrawer:(id)sender;
 - (IBAction) toggleEXIFDrawer:(id)sender;
 
-
 @property(nonatomic,retain) FlickrPhoto* flickrPhoto;
 
 @end
