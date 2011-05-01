@@ -119,6 +119,10 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	if([[flickrPhotoID stringValue] isEqualToString:@""] || isFetching)
 		return;
 	
+	NSPredicate* searchPredicate = [NSPredicate predicateWithFormat:@"ID like %@", [flickrPhotoID stringValue]];
+	if([[photoHistory filteredArrayUsingPredicate:searchPredicate] count])
+		return;
+		
 	NSString* photoID = [flickrPhotoID stringValue];
 	self.flickrPhoto = [FlickrPhoto photoWithID:photoID];
 	[flickrPhoto fetchInformation:kFlickrPhotoInformationAll];
