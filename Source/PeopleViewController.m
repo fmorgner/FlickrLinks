@@ -38,6 +38,13 @@
 	tableColumn = [tableView tableColumnWithIdentifier:@"fullname"];
 	[tableColumn bind:@"value" toObject:arrayController withKeyPath:@"arrangedObjects.username" options:bindingOptions];	
 	[arrayController release];
+	
+	if(delegate.currentPhoto.owner)
+		{
+		NSUInteger index = [[personManager people] indexOfObject:delegate.currentPhoto.owner];
+		NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:index];
+		[tableView selectRowIndexes:indexSet byExtendingSelection:NO];
+		}
 	}
 
 - (void)dealloc
@@ -50,6 +57,7 @@
 	if([keyPath isEqualToString:@"currentPhoto"])
 		{
 		FlickrPhoto* currentPhoto = [(AppDelegate*)[NSApp delegate] currentPhoto];
+
 		if([[change objectForKey:NSKeyValueChangeOldKey] isKindOfClass:[FlickrPhoto class]])
 			{
 			FlickrPhoto* oldPhoto = [change objectForKey:NSKeyValueChangeOldKey];
@@ -65,6 +73,15 @@
 					}
 				}
 			}	
+
+		if(currentPhoto.owner)
+			{
+			FlickrPerson* owner = [currentPhoto owner];
+			NSUInteger index = [[personManager people] indexOfObject:owner];
+			NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:index];
+			[tableView selectRowIndexes:indexSet byExtendingSelection:NO];
+			}
+		else
 		[currentPhoto addObserver:self forKeyPath:@"owner" options:NSKeyValueObservingOptionNew context:NULL];
 		}
 	else if([keyPath isEqualToString:@"owner"])
