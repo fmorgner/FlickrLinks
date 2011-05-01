@@ -76,7 +76,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		PeopleViewController* viewController = [[PeopleViewController alloc] initWithNibName:@"PeopleListView" bundle:[NSBundle mainBundle]];
 		[peopleDrawer setContentView:viewController.view];
 		[peopleDrawer setParentWindow:[NSApp mainWindow]];
-		[viewController release];
+//		[viewController release];
 		}
 		
 	if(!isPeopleDrawerOpen)

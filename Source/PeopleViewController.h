@@ -12,10 +12,10 @@
 
 @interface PeopleViewController : NSViewController
 	{
-	NSArray* peopleArray;
+	FlickrPersonManager* personManager;
 	IBOutlet NSTableView* tableView;
 	}
 
-@property(nonatomic, retain) NSArray* peopleArray;
+@property(nonatomic, assign) FlickrPersonManager* personManager;
 
 @end
