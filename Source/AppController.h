@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <FlickrKit/FlickrKit.h>
 
-@interface AppController : NSObject
+@interface AppController : NSObject <NSTableViewDelegate>
 	{
 	IBOutlet NSImageView* flickrPhotoView;
 	IBOutlet NSTextField* flickrPhotoID;

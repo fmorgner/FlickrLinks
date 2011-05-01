@@ -137,5 +137,18 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	self.previousPhoto = ((NSInteger)[photoHistory count] - 2 < 0) ? nil : [photoHistory objectAtIndex:[photoHistory indexOfObject:[aNotification object]] - 1];
 	}
 
+#pragma mark - TableView stuff
+
+- (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
+	{
+	CGFloat width = [[[tableView tableColumns] objectAtIndex:0] width];
+	NSString* string = [[flickrPhoto.comments objectAtIndex:row] rawText];
+	
+	NSCell* dataCell = [[[NSCell alloc] initTextCell:string] autorelease];
+	[dataCell setWraps:YES];
+	[dataCell setFont:[[[[tableView tableColumns] objectAtIndex:0] dataCell] font]];
+	
+	return [dataCell cellSizeForBounds:NSMakeRect(0, 0, width, FLT_MAX)].height;
+	}
 
 @end

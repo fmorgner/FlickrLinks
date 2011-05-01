@@ -1845,8 +1845,8 @@
 														<reference key="NSTextColor" ref="180003120"/>
 													</object>
 													<object class="NSTextFieldCell" key="NSDataCell" id="106347541">
-														<int key="NSCellFlags">337772096</int>
-														<int key="NSCellFlags2">2048</int>
+														<int key="NSCellFlags">337772032</int>
+														<int key="NSCellFlags2">0</int>
 														<string key="NSContents">Text Cell</string>
 														<reference key="NSSupport" ref="297271317"/>
 														<reference key="NSControlView" ref="385983837"/>
@@ -3176,6 +3176,14 @@
 						</object>
 					</object>
 					<int key="connectionID">789</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="385983837"/>
+						<reference key="destination" ref="2898438"/>
+					</object>
+					<int key="connectionID">790</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4833,7 +4841,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">789</int>
+			<int key="maxID">790</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
