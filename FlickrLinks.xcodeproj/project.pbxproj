@@ -17,6 +17,7 @@
 		BBFB911D13573FE70066E6E6 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFB911C13573FE70066E6E6 /* PreferencesController.m */; };
 		BBFB9120135741570066E6E6 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBFB911F135741570066E6E6 /* Preferences.xib */; };
 		C70D045913598094009A53B7 /* ExifView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C70D045813598094009A53B7 /* ExifView.xib */; };
+		C75BE69C136F486A00531A29 /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C75BE69B136F486A00531A29 /* EMKeychainItem.m */; };
 		C799093F13325A970000B732 /* FlickrKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
 		C799094113325AA10000B732 /* FlickrKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
 		C7D25BF0135DDD03003FF694 /* ExifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D25BEE135DDD03003FF694 /* ExifViewController.m */; };
@@ -57,6 +58,8 @@
 		BBFB911C13573FE70066E6E6 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
 		BBFB911F135741570066E6E6 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		C70D045813598094009A53B7 /* ExifView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExifView.xib; sourceTree = "<group>"; };
+		C75BE69A136F486A00531A29 /* EMKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKeychainItem.h; sourceTree = "<group>"; };
+		C75BE69B136F486A00531A29 /* EMKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKeychainItem.m; sourceTree = "<group>"; };
 		C769259C132FF244005F6AC3 /* FlickrKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D25BED135DDD03003FF694 /* ExifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExifViewController.h; sourceTree = "<group>"; };
 		C7D25BEE135DDD03003FF694 /* ExifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExifViewController.m; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 		BB031FCF130BD77800350873 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C75BE698136F483900531A29 /* EMKeychain */,
 				BB031FE6130BDB2B00350873 /* AppController.h */,
 				BB031FE7130BDB2B00350873 /* AppController.m */,
 				BB031FDB130BD77800350873 /* AppDelegate.h */,
@@ -147,6 +151,15 @@
 				BB031FD6130BD77800350873 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C75BE698136F483900531A29 /* EMKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				C75BE69A136F486A00531A29 /* EMKeychainItem.h */,
+				C75BE69B136F486A00531A29 /* EMKeychainItem.m */,
+			);
+			path = EMKeychain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +235,7 @@
 				C7DF0BCF133C9DEF001BE05B /* PeopleViewController.m in Sources */,
 				BBFB911D13573FE70066E6E6 /* PreferencesController.m in Sources */,
 				C7D25BF0135DDD03003FF694 /* ExifViewController.m in Sources */,
+				C75BE69C136F486A00531A29 /* EMKeychainItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
