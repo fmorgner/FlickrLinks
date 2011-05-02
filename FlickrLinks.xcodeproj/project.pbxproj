@@ -18,6 +18,8 @@
 		BBFB9120135741570066E6E6 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBFB911F135741570066E6E6 /* Preferences.xib */; };
 		C70D045913598094009A53B7 /* ExifView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C70D045813598094009A53B7 /* ExifView.xib */; };
 		C75BE69C136F486A00531A29 /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C75BE69B136F486A00531A29 /* EMKeychainItem.m */; };
+		C75BE69E136F490800531A29 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75BE69D136F490800531A29 /* Carbon.framework */; };
+		C75BE6A0136F491E00531A29 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75BE69F136F491E00531A29 /* Security.framework */; };
 		C799093F13325A970000B732 /* FlickrKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
 		C799094113325AA10000B732 /* FlickrKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
 		C7D25BF0135DDD03003FF694 /* ExifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D25BEE135DDD03003FF694 /* ExifViewController.m */; };
@@ -60,6 +62,8 @@
 		C70D045813598094009A53B7 /* ExifView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExifView.xib; sourceTree = "<group>"; };
 		C75BE69A136F486A00531A29 /* EMKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKeychainItem.h; sourceTree = "<group>"; };
 		C75BE69B136F486A00531A29 /* EMKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKeychainItem.m; sourceTree = "<group>"; };
+		C75BE69D136F490800531A29 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		C75BE69F136F491E00531A29 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C769259C132FF244005F6AC3 /* FlickrKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D25BED135DDD03003FF694 /* ExifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExifViewController.h; sourceTree = "<group>"; };
 		C7D25BEE135DDD03003FF694 /* ExifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExifViewController.m; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C75BE6A0136F491E00531A29 /* Security.framework in Frameworks */,
+				C75BE69E136F490800531A29 /* Carbon.framework in Frameworks */,
 				BB031FCA130BD77800350873 /* Cocoa.framework in Frameworks */,
 				C799093F13325A970000B732 /* FlickrKit.framework in Frameworks */,
 			);
@@ -101,6 +107,8 @@
 		BB031FC8130BD77800350873 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C75BE69F136F491E00531A29 /* Security.framework */,
+				C75BE69D136F490800531A29 /* Carbon.framework */,
 				BB031FC9130BD77800350873 /* Cocoa.framework */,
 				BB031FCB130BD77800350873 /* Other Frameworks */,
 			);
