@@ -43,6 +43,7 @@
 - (IBAction)stepThroughHistory:(id)sender;
 - (IBAction)togglePeopleDrawer:(id)sender;
 - (IBAction)toggleEXIFDrawer:(id)sender;
+- (IBAction)openPreferences:(id)sender;
 
 - (void)addPhotoToHistory:(NSNotification*)aNotification;
 

@@ -9,11 +9,13 @@
 #import <Cocoa/Cocoa.h>
 #import <FlickrKit/FlickrKit.h>
 #import "apiKey.h"
+#import "EMKeychainItem.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
 @private
 	NSWindow *window;
 	FlickrPhoto* currentPhoto;
+	EMGenericKeychainItem* keychainItem;
 }
 
 - (NSString*)apiKey;
@@ -21,5 +23,6 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) FlickrPhoto* currentPhoto;
+@property (retain) EMGenericKeychainItem* keychainItem;
 
 @end

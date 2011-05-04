@@ -12,9 +12,15 @@
 
 @synthesize window;
 @synthesize currentPhoto;
+@synthesize keychainItem;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 	{
+	NSUserDefaults* userDefaults = [[NSUserDefaultsController sharedUserDefaultsController] defaults];
+	NSString* username = [userDefaults stringForKey:@"username"];
+	
+	if(username)
+		self.keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"ch.felixmorgner.FlickrLinks" withUsername:username];
 	}
 
 - (NSString*)apiKey

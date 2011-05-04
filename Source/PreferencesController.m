@@ -12,14 +12,22 @@
 @implementation PreferencesController
 
 - (id)initWithWindow:(NSWindow *)window
-{
-    self = [super initWithWindow:window];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
+	{
+	if ((self = [super initWithWindow:window]))
+		{
+
+		for (int i = 0; i < 100; i++) {
+  static int myInt = 0;
+	myInt += i;
 }
+
+		NSToolbar* toolbar = [[NSToolbar alloc] init];
+		[[self window] setToolbar:toolbar];
+		[toolbar setVisible:YES];
+		}
+	
+	return self;
+	}
 
 - (void)dealloc
 {

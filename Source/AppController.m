@@ -9,6 +9,7 @@
 #import "AppController.h"
 #import "PeopleViewController.h"
 #import "ExifViewController.h"
+#import "PreferencesController.h"
 #import "AppDelegate.h"
 
 #define MAX_VALUE 100.0
@@ -112,6 +113,12 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		[exifDrawer close];
 		isEXIFDrawerOpen = NO;
 		}
+	}
+
+- (IBAction)openPreferences:(id)sender
+	{
+	PreferencesController* preferencesController = [[PreferencesController alloc] initWithWindowNibName:@"Preferences"];
+	[[preferencesController window] makeKeyWindow];
 	}
 
 - (IBAction) fetch:(id)sender
