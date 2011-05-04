@@ -9,9 +9,12 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface PreferencesController : NSWindowController {
-@private
+@interface PreferencesController : NSWindowController <NSToolbarDelegate>
+	{
+	@private
     
-}
+	}
+
+- (IBAction)showPreference:(id)sender;
 
 @end

@@ -17,6 +17,8 @@
 		BBFB911D13573FE70066E6E6 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFB911C13573FE70066E6E6 /* PreferencesController.m */; };
 		BBFB9120135741570066E6E6 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBFB911F135741570066E6E6 /* Preferences.xib */; };
 		C70D045913598094009A53B7 /* ExifView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C70D045813598094009A53B7 /* ExifView.xib */; };
+		C73990FD1371D1D5007578E0 /* AccountPreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C73990FB1371D1D5007578E0 /* AccountPreferenceViewController.m */; };
+		C73990FE1371D1D5007578E0 /* AccountPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C73990FC1371D1D5007578E0 /* AccountPreferenceViewController.xib */; };
 		C75BE69C136F486A00531A29 /* EMKeychainItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C75BE69B136F486A00531A29 /* EMKeychainItem.m */; };
 		C75BE69E136F490800531A29 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75BE69D136F490800531A29 /* Carbon.framework */; };
 		C75BE6A0136F491E00531A29 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75BE69F136F491E00531A29 /* Security.framework */; };
@@ -60,6 +62,9 @@
 		BBFB911C13573FE70066E6E6 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
 		BBFB911F135741570066E6E6 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		C70D045813598094009A53B7 /* ExifView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExifView.xib; sourceTree = "<group>"; };
+		C73990FA1371D1D5007578E0 /* AccountPreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountPreferenceViewController.h; sourceTree = "<group>"; };
+		C73990FB1371D1D5007578E0 /* AccountPreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountPreferenceViewController.m; sourceTree = "<group>"; };
+		C73990FC1371D1D5007578E0 /* AccountPreferenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountPreferenceViewController.xib; sourceTree = "<group>"; };
 		C75BE69A136F486A00531A29 /* EMKeychainItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKeychainItem.h; sourceTree = "<group>"; };
 		C75BE69B136F486A00531A29 /* EMKeychainItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKeychainItem.m; sourceTree = "<group>"; };
 		C75BE69D136F490800531A29 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
@@ -129,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				C75BE698136F483900531A29 /* EMKeychain */,
+				C73990FA1371D1D5007578E0 /* AccountPreferenceViewController.h */,
+				C73990FB1371D1D5007578E0 /* AccountPreferenceViewController.m */,
 				BB031FE6130BDB2B00350873 /* AppController.h */,
 				BB031FE7130BDB2B00350873 /* AppController.m */,
 				BB031FDB130BD77800350873 /* AppDelegate.h */,
@@ -143,6 +150,7 @@
 				C7DF0BD1133C9E72001BE05B /* PeopleListView.xib */,
 				BBFB911F135741570066E6E6 /* Preferences.xib */,
 				C70D045813598094009A53B7 /* ExifView.xib */,
+				C73990FC1371D1D5007578E0 /* AccountPreferenceViewController.xib */,
 				BB031FD0130BD77800350873 /* Supporting Files */,
 			);
 			path = Source;
@@ -227,6 +235,7 @@
 				C7DF0BD2133C9E72001BE05B /* PeopleListView.xib in Resources */,
 				BBFB9120135741570066E6E6 /* Preferences.xib in Resources */,
 				C70D045913598094009A53B7 /* ExifView.xib in Resources */,
+				C73990FE1371D1D5007578E0 /* AccountPreferenceViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +253,7 @@
 				BBFB911D13573FE70066E6E6 /* PreferencesController.m in Sources */,
 				C7D25BF0135DDD03003FF694 /* ExifViewController.m in Sources */,
 				C75BE69C136F486A00531A29 /* EMKeychainItem.m in Sources */,
+				C73990FD1371D1D5007578E0 /* AccountPreferenceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

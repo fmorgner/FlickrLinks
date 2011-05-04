@@ -7,7 +7,7 @@
 //
 
 #import "PreferencesController.h"
-
+#import "AccountPreferenceViewController.h"
 
 @implementation PreferencesController
 
@@ -15,30 +15,46 @@
 	{
 	if ((self = [super initWithWindow:window]))
 		{
-
-		for (int i = 0; i < 100; i++) {
-  static int myInt = 0;
-	myInt += i;
-}
-
-		NSToolbar* toolbar = [[NSToolbar alloc] init];
-		[[self window] setToolbar:toolbar];
-		[toolbar setVisible:YES];
 		}
 	
 	return self;
 	}
 
+- (void)awakeFromNib
+	{
+	
+	}
+
 - (void)dealloc
-{
-    [super dealloc];
-}
+	{
+  [super dealloc];
+	}
 
 - (void)windowDidLoad
-{
-    [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-}
+	{
+  [super windowDidLoad];
+	}
+
+- (IBAction)showPreference:(id)sender
+	{
+	if([(NSToolbarItem*)sender tag] == 2)
+		{
+  	AccountPreferenceViewController* accountPreferenceViewController = [[AccountPreferenceViewController alloc] initWithNibName:@"AccountPreferenceViewController" bundle:[NSBundle mainBundle]];
+
+		NSRect currentContentSize = [[self.window contentView] bounds];
+		NSRect frame = [self.window frame];
+		NSRect newContentSize = [[accountPreferenceViewController view] bounds];
+		
+		CGFloat deltaHeight = currentContentSize.size.height - newContentSize.size.height;
+		CGFloat deltaWidth = currentContentSize.size.width - newContentSize.size.width;
+		
+		frame.origin.y += deltaHeight;
+		frame.size.height -= deltaHeight;
+		frame.size.width -= deltaWidth;
+
+		[self.window setFrame:frame display:YES animate:YES];
+		self.window.contentView = accountPreferenceViewController.view;
+		}
+	}
 
 @end
