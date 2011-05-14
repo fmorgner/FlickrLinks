@@ -7,7 +7,7 @@
 //
 
 #import "AccountPreferenceViewController.h"
-
+#import "EMKeychainItem.h"
 
 @implementation AccountPreferenceViewController
 
@@ -20,6 +20,20 @@
     
     return self;
 }
+
+- (void)awakeFromNib
+	{
+	EMKeychainItem* keychainItem = [[NSApp delegate] valueForKey:@"keychainItem"];
+
+	if(keychainItem)
+		{
+		usernameField.stringValue = [keychainItem username];
+		}
+	else
+		{
+		
+		}
+	}
 
 - (void)dealloc
 {

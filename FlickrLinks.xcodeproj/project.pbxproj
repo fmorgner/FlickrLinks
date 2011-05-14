@@ -24,6 +24,8 @@
 		C75BE6A0136F491E00531A29 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75BE69F136F491E00531A29 /* Security.framework */; };
 		C799093F13325A970000B732 /* FlickrKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
 		C799094113325AA10000B732 /* FlickrKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
+		C7CE1C9C137EA6D800256DC2 /* AddAccountSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CE1C9B137EA6D800256DC2 /* AddAccountSheetController.m */; };
+		C7CE1C9F137EA6EE00256DC2 /* AddAccountSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7CE1C9E137EA6EE00256DC2 /* AddAccountSheet.xib */; };
 		C7D25BF0135DDD03003FF694 /* ExifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D25BEE135DDD03003FF694 /* ExifViewController.m */; };
 		C7DF0BCF133C9DEF001BE05B /* PeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0BCE133C9DEF001BE05B /* PeopleViewController.m */; };
 		C7DF0BD2133C9E72001BE05B /* PeopleListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7DF0BD1133C9E72001BE05B /* PeopleListView.xib */; };
@@ -70,6 +72,9 @@
 		C75BE69D136F490800531A29 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		C75BE69F136F491E00531A29 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C769259C132FF244005F6AC3 /* FlickrKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7CE1C9A137EA6D800256DC2 /* AddAccountSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAccountSheetController.h; sourceTree = "<group>"; };
+		C7CE1C9B137EA6D800256DC2 /* AddAccountSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAccountSheetController.m; sourceTree = "<group>"; };
+		C7CE1C9E137EA6EE00256DC2 /* AddAccountSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddAccountSheet.xib; path = ../AddAccountSheet.xib; sourceTree = "<group>"; };
 		C7D25BED135DDD03003FF694 /* ExifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExifViewController.h; sourceTree = "<group>"; };
 		C7D25BEE135DDD03003FF694 /* ExifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExifViewController.m; sourceTree = "<group>"; };
 		C7DF0BCD133C9DEF001BE05B /* PeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleViewController.h; sourceTree = "<group>"; };
@@ -136,6 +141,8 @@
 				C75BE698136F483900531A29 /* EMKeychain */,
 				C73990FA1371D1D5007578E0 /* AccountPreferenceViewController.h */,
 				C73990FB1371D1D5007578E0 /* AccountPreferenceViewController.m */,
+				C7CE1C9A137EA6D800256DC2 /* AddAccountSheetController.h */,
+				C7CE1C9B137EA6D800256DC2 /* AddAccountSheetController.m */,
 				BB031FE6130BDB2B00350873 /* AppController.h */,
 				BB031FE7130BDB2B00350873 /* AppController.m */,
 				BB031FDB130BD77800350873 /* AppDelegate.h */,
@@ -151,6 +158,7 @@
 				BBFB911F135741570066E6E6 /* Preferences.xib */,
 				C70D045813598094009A53B7 /* ExifView.xib */,
 				C73990FC1371D1D5007578E0 /* AccountPreferenceViewController.xib */,
+				C7CE1C9E137EA6EE00256DC2 /* AddAccountSheet.xib */,
 				BB031FD0130BD77800350873 /* Supporting Files */,
 			);
 			path = Source;
@@ -236,6 +244,7 @@
 				BBFB9120135741570066E6E6 /* Preferences.xib in Resources */,
 				C70D045913598094009A53B7 /* ExifView.xib in Resources */,
 				C73990FE1371D1D5007578E0 /* AccountPreferenceViewController.xib in Resources */,
+				C7CE1C9F137EA6EE00256DC2 /* AddAccountSheet.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +263,7 @@
 				C7D25BF0135DDD03003FF694 /* ExifViewController.m in Sources */,
 				C75BE69C136F486A00531A29 /* EMKeychainItem.m in Sources */,
 				C73990FD1371D1D5007578E0 /* AccountPreferenceViewController.m in Sources */,
+				C7CE1C9C137EA6D800256DC2 /* AddAccountSheetController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
