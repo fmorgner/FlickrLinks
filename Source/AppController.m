@@ -30,7 +30,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 		isEXIFDrawerOpen = NO;
 		previousPhoto = nil;
 		nextPhoto = nil;
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addPhotoToHistory:) name:FlickrPhotoDidFinishLoadingNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addPhotoToHistory:) name:FlickrPhotoDidChangeNotification object:nil];
 		}
 	return self;
 	}
