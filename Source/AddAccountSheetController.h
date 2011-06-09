@@ -13,6 +13,8 @@
 @private
     
 }
+
+- (void)presentSheet;
 - (IBAction)connectToFlickr:(id)sender;
 - (IBAction)cancel:(id)sender;
 

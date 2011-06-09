@@ -13,6 +13,7 @@
 @synthesize window;
 @synthesize currentPhoto;
 @synthesize keychainItem;
+@synthesize preferencesWindow;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 	{

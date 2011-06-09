@@ -7,7 +7,7 @@
 //
 
 #import "AddAccountSheetController.h"
-
+#import <FlickrKit/FlickrKit.h>
 
 @implementation AddAccountSheetController
 
@@ -33,11 +33,31 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
-- (IBAction)connectToFlickr:(id)sender
+- (void)presentSheet
 	{
-	
+	NSWindow* prefWindow = [NSApp keyWindow];
+	[NSApp beginSheet:self.window modalForWindow:prefWindow modalDelegate:self didEndSelector:@selector(sheetDidEnd: returnCode: contextInfo:) contextInfo:NULL];
 	}
 
-- (IBAction)cancel:(id)sender {
-}
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+	{
+	if(!returnCode)
+		{
+		[sheet orderOut:self];
+		}
+	else
+		{
+		[sheet orderOut:self];
+		}
+	}
+
+- (IBAction)connectToFlickr:(id)sender
+	{
+	[NSApp endSheet:[self window] returnCode:0];
+	}
+
+- (IBAction)cancel:(id)sender
+	{
+	[NSApp endSheet:[self window] returnCode:1];
+	}
 @end

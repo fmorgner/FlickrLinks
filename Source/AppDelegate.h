@@ -11,17 +11,20 @@
 #import "apiKey.h"
 #import "EMKeychainItem.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
-@private
-	NSWindow *window;
-	FlickrPhoto* currentPhoto;
-	EMGenericKeychainItem* keychainItem;
-}
+@interface AppDelegate : NSObject <NSApplicationDelegate>
+	{
+	@private
+		NSWindow *window;
+		FlickrPhoto* currentPhoto;
+		EMGenericKeychainItem* keychainItem;
+		NSWindow* preferencesWindow;
+	}
 
 - (NSString*)apiKey;
 - (NSString*)apiSecret;
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) NSWindow* preferencesWindow;
 @property (assign) FlickrPhoto* currentPhoto;
 @property (retain) EMGenericKeychainItem* keychainItem;
 

@@ -7,19 +7,20 @@
 //
 
 #import "AccountPreferenceViewController.h"
+#import "AddAccountSheetController.h"
+#import "AppDelegate.h"
 #import "EMKeychainItem.h"
 
 @implementation AccountPreferenceViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Initialization code here.
+	{
+	if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
+		{
     }
     
-    return self;
-}
+  return self;
+	}
 
 - (void)awakeFromNib
 	{
@@ -31,14 +32,15 @@
 		}
 	else
 		{
-		
+		AddAccountSheetController* sheetController = [[AddAccountSheetController alloc] initWithWindowNibName:@"AddAccountSheet"];
+		[sheetController presentSheet];
 		}
 	}
 
 - (void)dealloc
-{
-    [super dealloc];
-}
+	{
+  [super dealloc];
+	}
 
 - (IBAction)viewInSafari:(id)sender
 	{
@@ -49,7 +51,5 @@
 	{
 	
 	}
-	
-
 
 @end

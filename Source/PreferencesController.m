@@ -8,6 +8,7 @@
 
 #import "PreferencesController.h"
 #import "AccountPreferenceViewController.h"
+#import "AppDelegate.h"
 
 @implementation PreferencesController
 
@@ -40,7 +41,7 @@
 	if([(NSToolbarItem*)sender tag] == 2)
 		{
   	AccountPreferenceViewController* accountPreferenceViewController = [[AccountPreferenceViewController alloc] initWithNibName:@"AccountPreferenceViewController" bundle:[NSBundle mainBundle]];
-
+		[(AppDelegate*)[NSApp delegate] setPreferencesWindow:self.window];
 		NSRect currentContentSize = [[self.window contentView] bounds];
 		NSRect frame = [self.window frame];
 		NSRect newContentSize = [[accountPreferenceViewController view] bounds];
