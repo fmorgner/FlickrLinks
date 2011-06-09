@@ -23,7 +23,6 @@
 
 - (void)awakeFromNib
 	{
-	
 	}
 
 - (void)dealloc
@@ -38,10 +37,9 @@
 
 - (IBAction)showPreference:(id)sender
 	{
-	if([(NSToolbarItem*)sender tag] == 2)
+	if(([sender isKindOfClass:[NSToolbarItem class]] && [(NSToolbarItem*)sender tag] == 2) || ([sender isKindOfClass:[NSString class]] && [(NSString*)sender isEqualToString:@"user"]))
 		{
   	AccountPreferenceViewController* accountPreferenceViewController = [[AccountPreferenceViewController alloc] initWithNibName:@"AccountPreferenceViewController" bundle:[NSBundle mainBundle]];
-		[(AppDelegate*)[NSApp delegate] setPreferencesWindow:self.window];
 		NSRect currentContentSize = [[self.window contentView] bounds];
 		NSRect frame = [self.window frame];
 		NSRect newContentSize = [[accountPreferenceViewController view] bounds];

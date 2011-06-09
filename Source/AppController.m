@@ -119,6 +119,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	{
 	PreferencesController* preferencesController = [[PreferencesController alloc] initWithWindowNibName:@"Preferences"];
 	[[preferencesController window] makeKeyAndOrderFront:self];
+	[preferencesController showPreference:@"user"];
 	}
 
 - (IBAction) fetch:(id)sender
