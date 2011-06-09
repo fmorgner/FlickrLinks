@@ -43,7 +43,9 @@
 	{
 	if(!returnCode)
 		{
+		FlickrAuthorizationController* authController = [FlickrAuthorizationController new];
 		[sheet orderOut:self];
+		[authController authorizeForPermission:@"read"];
 		}
 	else
 		{
