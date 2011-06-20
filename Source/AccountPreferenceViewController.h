@@ -14,11 +14,11 @@
 	@private
   IBOutlet NSTextField* usernameField;
 	IBOutlet NSTextField* photoCountField;
-	IBOutlet NSTextField* photosetCountField;
 	IBOutlet NSTextField* proStatusField;
 	}
 
 - (IBAction)viewInSafari:(id)sender;
 - (IBAction)removeAccount:(id)sender;
+- (void)didReceiceAuthenticationToken:(NSNotification*)aNotification;
 
 @end
