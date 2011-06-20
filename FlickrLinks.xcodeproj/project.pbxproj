@@ -29,6 +29,7 @@
 		C7D25BF0135DDD03003FF694 /* ExifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D25BEE135DDD03003FF694 /* ExifViewController.m */; };
 		C7DF0BCF133C9DEF001BE05B /* PeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7DF0BCE133C9DEF001BE05B /* PeopleViewController.m */; };
 		C7DF0BD2133C9E72001BE05B /* PeopleListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7DF0BD1133C9E72001BE05B /* PeopleListView.xib */; };
+		C7E6FC7113AFDD9C00C80765 /* BoolValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E6FC7013AFDD9C00C80765 /* BoolValueTransformer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,6 +81,8 @@
 		C7DF0BCD133C9DEF001BE05B /* PeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleViewController.h; sourceTree = "<group>"; };
 		C7DF0BCE133C9DEF001BE05B /* PeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleViewController.m; sourceTree = "<group>"; };
 		C7DF0BD1133C9E72001BE05B /* PeopleListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PeopleListView.xib; sourceTree = "<group>"; };
+		C7E6FC6F13AFDD9C00C80765 /* BoolValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoolValueTransformer.h; sourceTree = "<group>"; };
+		C7E6FC7013AFDD9C00C80765 /* BoolValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoolValueTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				BB031FE7130BDB2B00350873 /* AppController.m */,
 				BB031FDB130BD77800350873 /* AppDelegate.h */,
 				BB031FDC130BD77800350873 /* AppDelegate.m */,
+				C7E6FC6F13AFDD9C00C80765 /* BoolValueTransformer.h */,
+				C7E6FC7013AFDD9C00C80765 /* BoolValueTransformer.m */,
 				C7DF0BCD133C9DEF001BE05B /* PeopleViewController.h */,
 				C7DF0BCE133C9DEF001BE05B /* PeopleViewController.m */,
 				BBFB911B13573FE70066E6E6 /* PreferencesController.h */,
@@ -265,6 +270,7 @@
 				C75BE69C136F486A00531A29 /* EMKeychainItem.m in Sources */,
 				C73990FD1371D1D5007578E0 /* AccountPreferenceViewController.m in Sources */,
 				C7CE1C9C137EA6D800256DC2 /* AddAccountSheetController.m in Sources */,
+				C7E6FC7113AFDD9C00C80765 /* BoolValueTransformer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +335,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -341,6 +348,7 @@
 				INFOPLIST_FILE = "Source/FlickrLinks-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -349,6 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -361,6 +370,7 @@
 				INFOPLIST_FILE = "Source/FlickrLinks-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
