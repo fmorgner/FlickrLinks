@@ -18,10 +18,10 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 	{
 	NSUserDefaults* userDefaults = [[NSUserDefaultsController sharedUserDefaultsController] defaults];
-	NSString* username = [userDefaults stringForKey:@"username"];
+	NSString* userID = [userDefaults stringForKey:@"userID"];
 	
-	if(username)
-		self.keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"ch.felixmorgner.FlickrLinks" withUsername:username];
+	if(userID)
+		self.keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"FlickrLinks" withUsername:userID];
 	}
 
 - (NSString*)apiKey
