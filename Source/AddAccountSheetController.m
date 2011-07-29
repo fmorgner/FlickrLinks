@@ -44,8 +44,8 @@
 	if(!returnCode)
 		{
 		FlickrAuthorizationController* authController = [FlickrAuthorizationController new];
-		[sheet orderOut:self];
 		[authController authorizeForPermission:@"read"];
+		[authController addObserver:self forKeyPath:@"authorizationURL" options:0 context:sheet];
 		}
 	else
 		{
@@ -61,5 +61,13 @@
 - (IBAction)cancel:(id)sender
 	{
 	[NSApp endSheet:[self window] returnCode:1];
+	}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+	{
+	if([keyPath isEqualToString:@"authorizationURL"])
+		{
+		[(NSWindow*)context orderOut:self];
+		}
 	}
 @end
