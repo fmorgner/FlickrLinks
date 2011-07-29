@@ -149,7 +149,7 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
 	{
-	CGFloat width = [[[tableView tableColumns] objectAtIndex:0] width];
+	CGFloat width = [(NSTableColumn*)[[tableView tableColumns] objectAtIndex:0] width];
 	NSString* string = [[flickrPhoto.comments objectAtIndex:row] rawText];
 	
 	NSCell* dataCell = [[[NSCell alloc] initTextCell:string] autorelease];
