@@ -20,7 +20,7 @@
 		self.keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"FlickrLinks" withUsername:userID];
 		
 	__weak FlickrAuthorizationContext* authContext = [FlickrAuthorizationContext sharedContext];
-	[authContext setConsumer:[OAuthConsumer consumerWithKey:@"5dd47fb83f033e4f57f5745082e83d27" secret:@"6ec002a515148be4" authorized:NO]];
+	[authContext setConsumer:[OAuthConsumer consumerWithKey:apiKey secret:apiSecret authorized:NO]];
 	}
 
 - (NSString*)apiKey
