@@ -7,13 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <OAuthKit/OAuthKit.h>
 
 @implementation AppDelegate
-
-@synthesize window;
-@synthesize currentPhoto;
-@synthesize keychainItem;
-@synthesize preferencesWindow;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 	{
@@ -22,6 +18,9 @@
 	
 	if(userID)
 		self.keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"FlickrLinks" withUsername:userID];
+		
+	__weak FlickrAuthorizationContext* authContext = [FlickrAuthorizationContext sharedContext];
+	[authContext setConsumer:[OAuthConsumer consumerWithKey:@"5dd47fb83f033e4f57f5745082e83d27" secret:@"6ec002a515148be4" authorized:NO]];
 	}
 
 - (NSString*)apiKey

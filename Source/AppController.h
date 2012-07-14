@@ -9,12 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <FlickrKit/FlickrKit.h>
 
+@class PeopleViewController;
+@class ExifViewController;
+
 @interface AppController : NSObject <NSTableViewDelegate>
 	{
 	IBOutlet NSImageView* flickrPhotoView;
+
 	IBOutlet NSTextField* flickrPhotoID;
 	IBOutlet NSTextField* flickrPhotoTitle;
-	IBOutlet NSProgressIndicator* flickrPhotoLoadingIndicator;
+
+	IBOutlet NSProgressIndicator* statusIndicator;
 
 	IBOutlet NSTableView* flickrTagsView;
 	IBOutlet NSTableView* flickrSetsView;
@@ -24,19 +29,6 @@
 
 	IBOutlet NSButton* backButton;
 	IBOutlet NSButton* forwardButton;
-
-	NSDrawer* peopleDrawer;
-	NSDrawer* exifDrawer;
-	
-	FlickrPhoto* flickrPhoto;
-	FlickrPhoto* nextPhoto;
-	FlickrPhoto* previousPhoto;
-	NSMutableArray* photoHistory;
-	NSInteger photoHistoryPosition;
-	
-	BOOL isFetching;
-	BOOL isPeopleDrawerOpen;
-	BOOL isEXIFDrawerOpen;
 	}
 
 - (IBAction)fetch:(id)sender;
@@ -45,10 +37,21 @@
 - (IBAction)toggleEXIFDrawer:(id)sender;
 - (IBAction)openPreferences:(id)sender;
 
-- (void)addPhotoToHistory:(NSNotification*)aNotification;
+@property(strong) FlickrPhoto* flickrPhoto;
+@property(strong) FlickrPhoto* nextPhoto;
+@property(strong) FlickrPhoto* previousPhoto;
 
-@property(retain) FlickrPhoto* flickrPhoto;	
-@property(assign) FlickrPhoto* nextPhoto;	
-@property(assign) FlickrPhoto* previousPhoto;
+@property(strong) NSDrawer* peopleDrawer;
+@property(strong) NSDrawer* exifDrawer;
 
+@property(strong)	NSMutableArray* photoHistory;
+
+@property(assign)	NSInteger photoHistoryPosition;
+
+@property(assign) BOOL isFetching;
+@property(assign) BOOL isPeopleDrawerOpen;
+@property(assign) BOOL isEXIFDrawerOpen;
+
+@property(strong) PeopleViewController* peopleViewController;
+@property(strong) ExifViewController* exifViewController;
 @end

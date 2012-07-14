@@ -12,20 +12,13 @@
 #import "EMKeychainItem.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
-	{
-	@private
-		NSWindow *window;
-		FlickrPhoto* currentPhoto;
-		EMGenericKeychainItem* keychainItem;
-		NSWindow* preferencesWindow;
-	}
 
 - (NSString*)apiKey;
 - (NSString*)apiSecret;
 
-@property (assign) IBOutlet NSWindow *window;
-@property (assign) NSWindow* preferencesWindow;
-@property (assign) FlickrPhoto* currentPhoto;
-@property (retain) EMGenericKeychainItem* keychainItem;
+@property (unsafe_unretained) IBOutlet NSWindow *window;
+@property (unsafe_unretained) NSWindow* preferencesWindow;
+@property (weak) FlickrPhoto* currentPhoto;
+@property (strong) EMGenericKeychainItem* keychainItem;
 
 @end

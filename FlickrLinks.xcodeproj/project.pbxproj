@@ -24,6 +24,7 @@
 		C75BE6A0136F491E00531A29 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C75BE69F136F491E00531A29 /* Security.framework */; };
 		C799093F13325A970000B732 /* FlickrKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
 		C799094113325AA10000B732 /* FlickrKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C769259C132FF244005F6AC3 /* FlickrKit.framework */; };
+		C7A2ADBA15AF6B120083E5B0 /* OAuthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A2ADB915AF6B120083E5B0 /* OAuthKit.framework */; };
 		C7CE1C9C137EA6D800256DC2 /* AddAccountSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CE1C9B137EA6D800256DC2 /* AddAccountSheetController.m */; };
 		C7CE1C9F137EA6EE00256DC2 /* AddAccountSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7CE1C9E137EA6EE00256DC2 /* AddAccountSheet.xib */; };
 		C7D25BF0135DDD03003FF694 /* ExifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D25BEE135DDD03003FF694 /* ExifViewController.m */; };
@@ -73,6 +74,7 @@
 		C75BE69D136F490800531A29 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		C75BE69F136F491E00531A29 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C769259C132FF244005F6AC3 /* FlickrKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FlickrKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7A2ADB915AF6B120083E5B0 /* OAuthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/FlickrLinks-cxybiofyplczkqbrkuwbmwsoqrvb/Build/Products/Debug/OAuthKit.framework"; sourceTree = "<group>"; };
 		C7CE1C9A137EA6D800256DC2 /* AddAccountSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAccountSheetController.h; sourceTree = "<group>"; };
 		C7CE1C9B137EA6D800256DC2 /* AddAccountSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAccountSheetController.m; sourceTree = "<group>"; };
 		C7CE1C9E137EA6EE00256DC2 /* AddAccountSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddAccountSheet.xib; path = ../AddAccountSheet.xib; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				C75BE69E136F490800531A29 /* Carbon.framework in Frameworks */,
 				BB031FCA130BD77800350873 /* Cocoa.framework in Frameworks */,
 				C799093F13325A970000B732 /* FlickrKit.framework in Frameworks */,
+				C7A2ADBA15AF6B120083E5B0 /* OAuthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +106,7 @@
 		BB031FBA130BD77700350873 = {
 			isa = PBXGroup;
 			children = (
+				C7A2ADB915AF6B120083E5B0 /* OAuthKit.framework */,
 				BB031FCF130BD77800350873 /* Source */,
 				BB031FC8130BD77800350873 /* Frameworks */,
 				BB031FC6130BD77800350873 /* Products */,
@@ -218,7 +222,7 @@
 		BB031FBC130BD77700350873 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Bühler AG";
 			};
 			buildConfigurationList = BB031FBF130BD77700350873 /* Build configuration list for PBXProject "FlickrLinks" */;
@@ -335,11 +339,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/FlickrLinks-cxybiofyplczkqbrkuwbmwsoqrvb/Build/Products/Debug\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -347,8 +355,10 @@
 				GCC_PREFIX_HEADER = "Source/FlickrLinks-Prefix.pch";
 				INFOPLIST_FILE = "Source/FlickrLinks-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -357,20 +367,26 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/FlickrLinks-cxybiofyplczkqbrkuwbmwsoqrvb/Build/Products/Debug\"",
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/FlickrLinks-Prefix.pch";
 				INFOPLIST_FILE = "Source/FlickrLinks-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

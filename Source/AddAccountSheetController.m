@@ -21,10 +21,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)windowDidLoad
 {
@@ -45,7 +41,7 @@
 		{
 		FlickrAuthorizationController* authController = [FlickrAuthorizationController new];
 		[authController authorizeForPermission:@"read"];
-		[authController addObserver:self forKeyPath:@"authorizationURL" options:0 context:sheet];
+		[authController addObserver:self forKeyPath:@"authorizationURL" options:0 context:(__bridge void *)(sheet)];
 		}
 	else
 		{
@@ -67,7 +63,7 @@
 	{
 	if([keyPath isEqualToString:@"authorizationURL"])
 		{
-		[(NSWindow*)context orderOut:self];
+		[(NSWindow*)CFBridgingRelease(context) orderOut:self];
 		}
 	}
 @end

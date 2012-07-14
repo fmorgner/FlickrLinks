@@ -25,10 +25,6 @@
 	{
 	}
 
-- (void)dealloc
-	{
-  [super dealloc];
-	}
 
 - (void)windowDidLoad
 	{

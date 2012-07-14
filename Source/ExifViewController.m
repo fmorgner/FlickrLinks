@@ -11,17 +11,6 @@
 
 @implementation ExifViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-	{
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
-  if (self)
-		{
-  	}
-    
-	return self;
-	}
-
 - (void)awakeFromNib
 	{
 	NSArrayController* exifArrayController = [[NSArrayController alloc] init];
@@ -32,13 +21,7 @@
 	
 	[labelColumn bind:@"value" toObject:exifArrayController withKeyPath:@"arrangedObjects.label" options:nil];
 	[valueColumn bind:@"value" toObject:exifArrayController withKeyPath:@"arrangedObjects.value" options:nil];
-	
-	[exifArrayController release];
 	}
 
-- (void)dealloc
-	{
-  [super dealloc];
-	}
 
 @end

@@ -31,7 +31,7 @@
 
 	if(keychainItem)
 		{
-		BoolValueTransformer* boolValueTransformer = [[[BoolValueTransformer alloc] init] autorelease];
+		BoolValueTransformer* boolValueTransformer = [[BoolValueTransformer alloc] init];
 		[NSValueTransformer setValueTransformer:boolValueTransformer forName:@"BoolValueTransformer"];
 		
 		FlickrPerson* user = [FlickrPerson personWithID:[keychainItem username]];
@@ -39,7 +39,7 @@
 		[userController bind:@"content" toObject:user withKeyPath:@"self" options:nil];
 		
 		[usernameField bind:@"stringValue" toObject:userController withKeyPath:@"selection.username" options:nil];
-		[proStatusField bind:@"stringValue" toObject:userController withKeyPath:@"selection.proStatus" options:[NSDictionary dictionaryWithObject:@"BoolValueTransformer" forKey:NSValueTransformerNameBindingOption]];
+		[proStatusField bind:@"stringValue" toObject:userController withKeyPath:@"selection.proStatus" options:@{NSValueTransformerNameBindingOption: @"BoolValueTransformer"}];
 		[photoCountField bind:@"stringValue" toObject:userController withKeyPath:@"selection.photoCount" options:nil];
 		}
 	else
@@ -49,10 +49,6 @@
 		}
 	}
 
-- (void)dealloc
-	{
-  [super dealloc];
-	}
 
 - (IBAction)viewInSafari:(id)sender
 	{

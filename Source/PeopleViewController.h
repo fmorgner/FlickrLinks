@@ -12,10 +12,8 @@
 
 @interface PeopleViewController : NSViewController
 	{
-	FlickrPersonManager* personManager;
-	IBOutlet NSTableView* tableView;
 	}
 
-@property(nonatomic, assign) FlickrPersonManager* personManager;
+@property(weak) IBOutlet NSTableView* tableView;
 
 @end
