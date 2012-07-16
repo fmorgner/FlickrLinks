@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <OAuthKit/OAuthKit.h>
 
 @implementation AppDelegate
 
@@ -20,7 +19,8 @@
 		self.keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"FlickrLinks" withUsername:userID];
 		
 	__weak FlickrAuthorizationContext* authContext = [FlickrAuthorizationContext sharedContext];
-	[authContext setConsumer:[OAuthConsumer consumerWithKey:apiKey secret:apiSecret authorized:NO]];
+	[authContext setKey:apiKey];
+	[authContext setSecret:apiSecret];
 	}
 
 - (NSString*)apiKey
