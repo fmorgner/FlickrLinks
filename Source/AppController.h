@@ -37,9 +37,9 @@
 - (IBAction)toggleEXIFDrawer:(id)sender;
 - (IBAction)openPreferences:(id)sender;
 
-@property(strong) FlickrPhoto* flickrPhoto;
-@property(strong) FlickrPhoto* nextPhoto;
-@property(strong) FlickrPhoto* previousPhoto;
+@property(strong) FKPhoto* flickrPhoto;
+@property(strong) FKPhoto* nextPhoto;
+@property(strong) FKPhoto* previousPhoto;
 
 @property(strong) NSDrawer* peopleDrawer;
 @property(strong) NSDrawer* exifDrawer;

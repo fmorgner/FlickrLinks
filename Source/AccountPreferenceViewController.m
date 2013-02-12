@@ -19,7 +19,7 @@
 	{
 	if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
 		{
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiceAuthenticationToken:) name:FlickrAuthorizationControllerDidReceiveToken object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiceAuthenticationToken:) name:FKNotificationAuthorizationControllerDidReceiveToken object:nil];
     }
     
   return self;
@@ -34,7 +34,7 @@
 		BoolValueTransformer* boolValueTransformer = [[BoolValueTransformer alloc] init];
 		[NSValueTransformer setValueTransformer:boolValueTransformer forName:@"BoolValueTransformer"];
 		
-		FlickrPerson* user = [FlickrPerson personWithID:[keychainItem username]];
+		FKPerson* user = [FKPerson personWithID:[keychainItem username]];
 		NSObjectController* userController = [[NSObjectController alloc] initWithContent:user];
 		[userController bind:@"content" toObject:user withKeyPath:@"self" options:nil];
 		
@@ -62,13 +62,5 @@
 
 - (void)didReceiceAuthenticationToken:(NSNotification*)aNotification
 	{
-	FlickrToken* receivedToken = [[aNotification userInfo] valueForKey:FlickrTokenKey];
-	EMGenericKeychainItem* keychainItem = [EMGenericKeychainItem addGenericKeychainItemForService:@"FlickrLinks" withUsername:receivedToken.user.ID password:receivedToken.tokenString];
-	if(keychainItem)
-		{
-		NSUserDefaults* userDefaults =  [[NSUserDefaultsController sharedUserDefaultsController] defaults];
-		[userDefaults setObject:receivedToken.user.ID forKey:@"userID"];
-		[userDefaults synchronize];
-		}
 	}
 @end

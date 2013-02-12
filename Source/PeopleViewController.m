@@ -14,7 +14,7 @@
 - (void)awakeFromNib
 	{
 	NSArrayController* peopleController = [NSArrayController new];
-	[peopleController bind:@"contentArray" toObject:[FlickrPersonManager sharedManager] withKeyPath:@"people" options:nil];
+	[peopleController bind:@"contentArray" toObject:[FKPersonManager sharedManager] withKeyPath:@"people" options:nil];
 
 	NSObjectController* ownerController = [[NSObjectController alloc] init];
 	[ownerController bind:@"content" toObject:[NSApp delegate] withKeyPath:@"currentPhoto.owner" options:nil];

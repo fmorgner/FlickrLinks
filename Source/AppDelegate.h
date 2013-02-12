@@ -18,7 +18,7 @@
 
 @property (unsafe_unretained) IBOutlet NSWindow *window;
 @property (unsafe_unretained) NSWindow* preferencesWindow;
-@property (weak) FlickrPhoto* currentPhoto;
+@property (weak) FKPhoto* currentPhoto;
 @property (strong) EMGenericKeychainItem* keychainItem;
 
 @end

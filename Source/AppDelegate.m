@@ -18,7 +18,7 @@
 	if(userID)
 		self.keychainItem = [EMGenericKeychainItem genericKeychainItemForService:@"FlickrLinks" withUsername:userID];
 		
-	__weak FlickrAuthorizationContext* authContext = [FlickrAuthorizationContext sharedContext];
+	__weak FKAuthorizationContext* authContext = [FKAuthorizationContext sharedContext];
 	[authContext setKey:apiKey];
 	[authContext setSecret:apiSecret];
 	}

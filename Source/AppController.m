@@ -102,11 +102,11 @@ static NSString* apiCall = @"http://api.flickr.com/services/rest/?method=";
 	if([[_photoHistory filteredArrayUsingPredicate:searchPredicate] count])
 		return;
 		
-	_flickrPhoto = [FlickrPhoto photoWithID:[flickrPhotoID stringValue]];
+	_flickrPhoto = [FKPhoto photoWithID:[flickrPhotoID stringValue]];
 	
 	__weak AppController* appController = self;
 	
-	[[NSNotificationCenter defaultCenter] addObserverForName:FlickrPhotoDidChangeNotification object:_flickrPhoto queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+	[[NSNotificationCenter defaultCenter] addObserverForName:FKNotificationPhotoDidChange object:_flickrPhoto queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
 		[_photoHistory addObject:[note object]];
 		appController.flickrPhoto = [note object];
 		appController.previousPhoto = ((NSInteger)[_photoHistory count] - 2 < 0) ? nil : [_photoHistory objectAtIndex:[_photoHistory indexOfObject:[note object]] - 1];

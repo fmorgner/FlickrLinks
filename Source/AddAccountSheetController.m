@@ -39,7 +39,7 @@
 	{
 	if(!returnCode)
 		{
-		FlickrAuthorizationController* authController = [FlickrAuthorizationController new];
+		FKAuthorizationController* authController = [FKAuthorizationController new];
 		[authController authorizeForPermission:@"read"];
 		[authController addObserver:self forKeyPath:@"authorizationURL" options:0 context:(__bridge void *)(sheet)];
 		}
